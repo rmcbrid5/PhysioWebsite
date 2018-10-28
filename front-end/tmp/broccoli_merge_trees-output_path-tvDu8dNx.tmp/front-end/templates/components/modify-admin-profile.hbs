@@ -1,0 +1,35 @@
+<div class="ui blue right floated animated button" style="min-width: 0px;" {{action 'openModal'}}>
+    <div class="visible content"><i class="edit icon"></i></div>
+    <div class="hidden content">Edit</div>
+</div>
+
+{{#ui-modal name=modalName class=modalName}}
+    <div class="header">
+        Modifying Administrator Profile
+    </div>
+    <div class="scrolling content">
+        <div class="ui form">
+            <div class="field">
+                <label>Modify First Name</label>
+                {{input type="text" value=givenName cols="50" rows="1"}}
+            </div>
+            <div class="field">
+                <label>Modify Last Name</label>
+                {{input type="text" value=familyName cols="50" rows="1"}}
+            </div>
+        </div>
+    </div>
+<br>
+
+<div class="actions">
+    <div class="ui black deny button">
+        Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+        Save
+        <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+</div>
+{{/ui-modal}}
+<br><br>

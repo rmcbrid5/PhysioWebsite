@@ -1,0 +1,38 @@
+<br>
+<div class="ui tabular menu">
+    <a class="active item">
+        {{#link-to 'physio-profile'}}Profile{{/link-to}}
+    </a>
+  <a class="item">
+    {{#link-to "exercise"}}Exercises{{/link-to}}
+  </a>
+  <a class="item">
+    {{#link-to "rehab-plans"}}Rehabilitation Plans{{/link-to}}
+  </a>
+  <a class="item">
+    {{#link-to "patient-profiles"}}Assign Rehabilitation Plans{{/link-to}}
+  </a>
+  <a class="item">
+      {{#link-to "physio-completed-injury-forms"}}Completed Injury Forms{{/link-to}}
+  </a>
+  <a class="item">
+    {{#link-to "patient-images"}}User's Images{{/link-to}}
+  </a>
+  <a class="item">
+    {{#link-to "appointments"}}Upcoming Appointments{{/link-to}}
+  </a>
+  <a class="item">
+    {{#link-to 'generate-reports'}}Generate Patient Reports{{/link-to}}
+  </a>
+</div>
+<div style="margin-left: 4em; margin-right: 4em">
+    <h2>{{model.givenName}} {{model.familyName}}</h2>
+    <h4>User Account Name</h4>
+    {{model.userAccount.userAccountName}}
+    <h4>Email</h4>
+    {{model.email}}
+    <h4>Date Hired</h4>
+    {{model.dateHired}}
+    <br>
+    {{modify-physio-profile ID=model.id byAdmin=false}}
+</div>

@@ -1,0 +1,38 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Amita" rel="stylesheet">
+</head>
+<nav id="mainNav" style="background-color: white; padding-top:4em">
+
+  {{#link-to "home"}}<img class="navbar-brand" style="padding:0 8em 0 4em; margin-top:-2em;margin-right: 5em; height: 90px" src="assets/images/SelfStart+logo+small.png" />{{/link-to}}
+  {{#if oudaAuth.isAuthenticated}}
+    <a class="nav-link" style='float: right; padding-right: 4em; padding-top: 8px'>{{#link-to 'log-out'}}Logout{{/link-to}}</a>
+  {{else}}
+    <a class="nav-link" style='float: right; padding-right: 4em; padding-top:8px'>{{#link-to "login"}}Login{{/link-to}}</a>
+    <a class="nav-link" style='float: right; padding-right: 4em; padding-top:8px'>{{#link-to "fill-injury-form"}}Fill Injury Form{{/link-to}}</a>
+  {{/if}}
+  {{#if oudaAuth.isPhysiotherapist}}
+    <a class="nav-link" style='float: right; padding-right: 4em; padding-top:8px'>{{#link-to "physio-profile"}}Physiotherapist{{/link-to}}</a>
+  {{else}}
+  {{/if}}
+  {{#if oudaAuth.isAdmin}}
+    <a class="nav-link" style='float: right; padding-right: 4em; padding-top:8px'>{{#link-to "admin-profile"}}Admin{{/link-to}}</a>
+  {{else}}
+  {{/if}}
+  {{#if oudaAuth.isPatient}}
+    <a class="nav-link" style='float: right; padding-right: 4em; padding-top:8px'>{{#link-to "clients"}}Client{{/link-to}}</a>
+  {{else}}
+  {{/if}}
+  <a class="nav-link" style='float: right; padding-right: 4em; padding-top:8px'>{{#link-to "blog"}}Blog{{/link-to}}</a>
+  <a class="nav-link" href="/#contact" style='float: right; padding-right: 4em; padding-top:8px'>Contact</a>
+  <a class="nav-link" style='float: right; padding-right: 4em; padding-top:8px'>{{#link-to "faq"}}FAQ{{/link-to}}</a>
+  <a class="nav-link" style='float: right; padding-right: 4em; padding-top:8px'>{{#link-to "services"}}Services{{/link-to}}</a>
+  <a class="nav-link" style='float: right; padding-right: 4em; padding-top:8px'>{{#link-to "how-it-works"}}Online Therapy<br />How It Works{{/link-to}}</a>
+  <a class="nav-link" style='float: right; padding-right: 4em; padding-top:8px'>{{#link-to "about"}}About Me{{/link-to}}</a>
+  <a class="nav-link" style='float: right; padding-right: 4em; padding-top:8px'>{{#link-to "home"}}Home{{/link-to}}</a>
+</nav>
+{{outlet}}
+<footer style="text-align:center; padding-top: 2em; padding-bottom: 2em">
+  <a href="https://www.facebook.com/Marcotte-Physiotherapy-Clinic-345984852492140/" target="_blank"><i class="large facebook icon"></i></a>
+  <a href="https://www.linkedin.com/in/stephanie-marcotte-258985149/" target="_blank"><i class="large linkedin in icon"></i></a>
+</footer>

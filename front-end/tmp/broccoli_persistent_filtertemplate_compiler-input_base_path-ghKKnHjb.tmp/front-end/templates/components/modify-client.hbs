@@ -1,0 +1,118 @@
+<div class="ui green right floated animated button" style="min-width: 0px;" {{action 'openModal'}}>
+    <div class="visible content"><i class="edit icon"></i></div>
+    <div class="hidden content">Edit</div>
+</div>
+
+{{#ui-modal name=modalName class=modalName}}
+    <div class="header">
+        Modifying Client
+    </div>
+    <div class="scrolling content">
+        <div class="ui form">
+            <div class="field">
+                <label>First Name</label>
+                {{textarea value=givenName cols="50" rows="1"}}
+            </div>
+            <div class="field">
+                <label>Last Name</label>
+                {{textarea value=familyName cols="50" rows="1"}}
+            </div>
+            <div class="field">
+                <label>Phone Number</label>
+                {{textarea value=phone cols="50" rows="1"}}
+            </div>
+            <div class="field">
+                <label>Modify Date Of Birth</label>
+                {{pikaday-input formate="YYYY/MM/DD" readonly="readonly" value=DOB yearRange="100" onSelection=(action 'selectDate')}}
+            </div>
+            <div class="field">
+                <label>Modify Postal Code</label>
+                {{textarea value=postalCode cols="50" rows="1" }}
+            </div>
+            <div class="field">
+                <label>Modify Phone</label>
+                {{textarea value=phone cols="50" rows="1" }}
+            </div>
+            <div class="field">
+                <label>Modify Marital Status</label>
+                {{textarea value=maritalStatus cols="50" rows="1" }}
+            </div>
+            <div class="field">
+                <label>Modify Occupation</label>
+                {{textarea value=occupation cols="50" rows="1" }}
+            </div>
+            <div class="field">
+                <label>Country</label>
+                {{#ui-dropdown class="search selection" allowAdditions=true selected=country onChange=(action (mut country)) as |execute mapper|}}
+                    <div class="default text">Search Countries</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div data-value="" class="item">All Items</div>
+                        {{#each countryModel as |count|}}
+                            <div data-value="{{map-value mapper count}}" class="item">
+                                {{count.name}}
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/ui-dropdown}}
+            </div>
+            <div class="field">
+                <label>Province</label>
+                {{#ui-dropdown class="search selection" allowAdditions=true selected=province onChange=(action (mut province)) as |execute mapper|}}
+                    <div class="default text">Search Provinces</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div data-value="" class="item">All Items</div>
+                        {{#each provinceModel as |prov|}}
+                            <div data-value="{{map-value mapper prov}}" class="item">
+                                {{prov.name}}
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/ui-dropdown}}
+            </div>
+            <div class="field">
+                <label>City</label>
+                {{#ui-dropdown class="search selection" allowAdditions=true selected=city onChange=(action (mut city)) as |execute mapper|}}
+                    <div class="default text">Search Cities</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div data-value="" class="item">All Items</div>
+                        {{#each cityModel as |cit|}}
+                            <div data-value="{{map-value mapper cit}}" class="item">
+                                {{cit.name}}
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/ui-dropdown}}
+            </div>
+            <div class="field">
+                <label>Gender</label>
+                {{#ui-dropdown class="search selection" allowAdditions=true selected=gender onChange=(action (mut gender)) as |execute mapper|}}
+                    <div class="default text">Search Genders</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        {{#each genderModel as |gend|}}
+                            <div data-value="{{map-value mapper gend}}" class="item">
+                                {{gend.name}}
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/ui-dropdown}}
+            </div>
+        </div>
+    </div>
+<br>
+
+<div class="actions">
+    <div class="ui black deny button">
+        Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+        Save
+        <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+</div>
+{{/ui-modal}}
+<br><br>

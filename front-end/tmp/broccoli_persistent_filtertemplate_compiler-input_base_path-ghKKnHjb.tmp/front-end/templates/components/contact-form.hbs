@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-lg-12">
+    <form id="contactForm" name="sentMessage" novalidate>
+      <div class="ui form">
+        <div class="col-md-6">
+          <div class="form-group">
+            {{input type="text" cols="50" rows="1" value=name placeholder="Your Name *"}}
+            <p class="help-block text-danger"></p>
+          </div><br>
+                <div class="form-group">
+                  {{input type="email" cols="50" rows="1" value=email placeholder="Your Email *"}}
+                  <p class="help-block text-danger"></p>
+                </div><br>
+                      <div class="form-group">
+                        {{input type="text" cols="50" rows="1" value=phone placeholder="Your Phone *"}}
+                        <p class="help-block text-danger"></p>
+                      </div><br>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            {{textarea cols="50" rows="6" value=message placeholder="Your Message *"}}
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-lg-12 text-center">
+          <div id="success"></div><br />
+          <div class="ui positive button" {{action "sendMessage"}} style="background-color: #4f9ec7; color:white">
+            Send Message
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

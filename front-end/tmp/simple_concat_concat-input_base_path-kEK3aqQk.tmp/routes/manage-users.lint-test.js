@@ -1,0 +1,4 @@
+QUnit.test('routes/manage-users.js', function(assert) {
+  assert.expect(1);
+  assert.ok(false, 'routes/manage-users.js should pass ESLint\n\n4:10 - \'computed\' is defined but never used. (no-unused-vars)\n5:8 - \'$\' is defined but never used. (no-unused-vars)\n18:13 - \'myStore\' is assigned a value but never used. (no-unused-vars)\n19:13 - \'patientProfilesJSON\' is assigned a value but never used. (no-unused-vars)\n20:13 - \'physiotherapistsJSON\' is assigned a value but never used. (no-unused-vars)\n45:17 - Unexpected console statement. (no-console)\n46:17 - Unexpected console statement. (no-console)\n63:13 - Unexpected console statement. (no-console)\n76:11 - \'self\' is assigned a value but never used. (no-unused-vars)\n84:11 - Unexpected console statement. (no-console)\n88:11 - Unexpected console statement. (no-console)\n102:11 - \'self\' is assigned a value but never used. (no-unused-vars)');
+});

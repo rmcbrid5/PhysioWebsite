@@ -1,0 +1,4 @@
+QUnit.test('components/modify-form.js', function(assert) {
+  assert.expect(1);
+  assert.ok(false, 'components/modify-form.js should pass ESLint\n\n13:5 - Only string, number, symbol, boolean, null, undefined, and function are allowed as default properties (ember/avoid-leaking-state-in-ember-objects)\n14:5 - Only string, number, symbol, boolean, null, undefined, and function are allowed as default properties (ember/avoid-leaking-state-in-ember-objects)\n18:16 - Use import { computed } from \'@ember/object\'; instead of using Ember.computed (ember/new-module-imports)\n18:16 - \'Ember\' is not defined. (no-undef)\n66:25 - \'i\' is already defined. (no-redeclare)\n113:33 - \'i\' is already defined. (no-redeclare)\n126:33 - Empty block statement. (no-empty)\n191:17 - \'table\' is assigned a value but never used. (no-unused-vars)');
+});

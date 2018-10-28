@@ -1,0 +1,39 @@
+<div class="ui green right floated animated button" style="min-width: 0px;" {{action 'openModal'}}>
+    <div class="visible content"><i class="edit icon"></i></div>
+    <div class="hidden content">Compete</div>
+</div>
+
+{{#ui-modal name=modalName class=modalName}}
+    <div class="header">
+        Complete Assesment Test
+    </div>
+    <div class="scrolling content">
+        <div class="ui form">
+            <div class="field assessment-question">
+                <label>Questions</label>
+                <ol>
+                    {{#each assessmentTest.form.questionsLists as |questionsList|}}
+                        <br>
+                        <li>
+                            <label>{{questionsList.question.questionText}}</label>
+                            {{input type="text" cols="50" rows="1" value=questionsList.unique}}
+                        </li>
+                    {{/each}}
+              </ol>
+          </div>
+        </div>
+    </div>
+<br>
+
+<div class="actions">
+    <div class="ui black deny button">
+        Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+        Done!
+        <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+</div>
+{{/ui-modal}}
+<br><br>

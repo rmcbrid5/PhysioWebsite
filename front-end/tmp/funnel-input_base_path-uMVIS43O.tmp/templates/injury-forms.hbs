@@ -1,0 +1,47 @@
+<br>
+<div class="ui secondary pointing menu">
+    <a class="item">{{#link-to "admin-profile"}}Profile{{/link-to}}</a>
+  <a class="item">{{#link-to "forms"}}Forms Questions{{/link-to}}</a>
+  <a class="item">{{#link-to "questions"}}Questions{{/link-to}}</a>
+  <a class="active item">{{#link-to "injury-forms"}}Injury Forms{{/link-to}}</a>
+  <a class="item">
+    {{#link-to "manage-users"}}Manage Users{{/link-to}}
+  </a>
+</div>
+<div style='margin-left: 4em; margin-right:4em'>
+    <h2>Injury Forms</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12" style="margin: 30px;">
+      <table id="example" class="ui celled table" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+              <th>Name</th>
+              <th>Form</th>
+              <th>Delete</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+              <th>Name</th>
+              <th>Form</th>
+              <th>Delete</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            {{#each model as |onePost|}}
+                <tr>
+                    <td>{{onePost.name}}</td>
+                    <td>{{onePost.form.name}}</td>
+                    <td>
+                        {{delete-injury-form ID=onePost.id}}
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{add-injury-form}}
+</div>
+</div>
+</div>

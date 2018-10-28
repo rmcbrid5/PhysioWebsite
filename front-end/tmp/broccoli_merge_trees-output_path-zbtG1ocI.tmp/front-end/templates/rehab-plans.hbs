@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script>
+ $(document).ready(function() {
+        var table = $('#example').DataTable();
+      }
+  );  
+</script>
+<br>
+<div class="ui tabular menu">
+    <a class="item">
+        {{#link-to 'physio-profile'}}Profile{{/link-to}}
+    </a>
+  <a class="item">
+    {{#link-to "exercise"}}Exercises{{/link-to}}
+  </a>
+  <a class="active item">
+    {{#link-to "rehab-plans"}}Rehabilitation Plans{{/link-to}}
+  </a>
+  <a class="item">
+    {{#link-to "patient-profiles"}}Assign Rehabilitation Plans{{/link-to}}
+  </a>
+  <a class="item">
+      {{#link-to "physio-completed-injury-forms"}}Completed Injury Forms{{/link-to}}
+  </a>
+  <a class="item">
+    {{#link-to "patient-images"}}User's Images{{/link-to}}
+  </a>
+  <a class="item">
+    {{#link-to "appointments"}}Upcoming Appointments{{/link-to}}
+  </a>
+  <a class="item">
+    {{#link-to 'generate-reports'}}Generate Patient Reports{{/link-to}}
+  </a>
+</div>
+<div class="rehabPlan">
+    <h2>Plans</h2>
+    <div class="row">
+    <div class="col-lg-12">
+    <table id="example" class="ui celled table" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Goal</th>
+                <th>Time Frame To Complete</th>
+                <th>Edit/Delete</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Goal</th>
+                <th>Time Frame To Complete</th>
+                <th>Edit/Delete</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            {{#each model as |onePost|}}
+            <tr>
+                <td>{{onePost.name}}</td>
+                <td>{{onePost.description}}</td>
+                <td>{{onePost.goal}}</td>
+                <td>{{onePost.timeFrameToComplete}}</td>
+                <td>
+                    {{delete-plan ID=onePost.id}}{{modify-plan name=onePost.name description=onePost.description physiotherapist=onePost.physiotherapist timeFrameToComplete=onePost.timeFrameToComplete goal=onePost.goal exercisesLists=onePost.exercisesLists assessmentTests=onePost.assessmentTests exercisesLists=onePost.exercisesLists ID=onePost.id}}
+                </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    {{add-new-plan}}
+  </div>
+  </div>
+</div>

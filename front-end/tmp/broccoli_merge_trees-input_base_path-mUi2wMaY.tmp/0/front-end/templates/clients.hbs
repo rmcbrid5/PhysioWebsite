@@ -1,0 +1,45 @@
+<div class="ui secondary pointing menu">
+  <div class="active item">{{#link-to 'clients'}}Profile{{/link-to}}</div>
+  <div class="item">{{#link-to 'book-appointment'}}Book Appointment{{/link-to}}</div>
+  <div class="item">{{#link-to 'make-payment'}}Make Payment{{/link-to}}</div>
+  <div class="item">{{#link-to 'treatments'}}Treatments{{/link-to}}</div>
+  <div class="item">{{#link-to 'my-images'}}My Uploaded Images{{/link-to}}</div>
+</div>
+<br><br>
+<div style="margin-left: 4em; margin-right: 4em">
+  <h2>{{model.givenName}} {{model.familyName}}</h2>
+  <h4>User Account Name</h4>
+  {{model.userAccount.userAccountName}}
+  <h4>Email</h4>
+  {{model.email}}
+  <h4>Date of Birth</h4>
+  {{model.DOB}}
+  <h4>Postal Code</h4>
+  {{model.postalCode}}
+  <h4>Phone Number</h4>
+  {{model.phone}}
+  <h4>Gender</h4>
+  {{model.gender.name}}
+  <h4>Country</h4>
+  {{model.country.name}}
+  <h4>Province</h4>
+  {{model.province.name}}
+  <h4>City</h4>
+  {{model.city.name}}
+  <br>
+  {{modify-client-profile ID=model.id}}
+  <br>
+  {{upload-files}}<br />
+  <h3>How to Create a Movement Assessment Video</h3>
+
+  <div style="position: relative; width: 640px;">
+
+    <video id=0 controls width=640 height=360>
+
+      <source src="assets/images/Movement+assessment+video.mp4" type='video/mp4'>
+
+      <p>Video is not visible, most likely your browser does not support HTML5 video</p>
+
+    </video>
+  </div>
+</div>

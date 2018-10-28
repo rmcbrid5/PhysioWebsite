@@ -1,0 +1,126 @@
+<div class="ui blue animated button"{{action 'openModal'}}>
+    <div class="visible content">Register a Patient Profile</div>
+    <div class="hidden content">
+        <i class="plus icon"></i>
+    </div>
+</div>
+
+{{#ui-modal name="registerUser" class="registerUser"}}
+    <div class="header">
+        Registering As A New User
+    </div>
+    <div class="scrolling content">
+        <div class="ui form">
+            <div class="field">
+                <label>Email</label>
+                {{input type="text" cols="50" rows="1" value=email1 placeholder="Add email"}}
+            </div>
+            <div class="field">
+                <label>Confirm Email</label>
+                {{input type="text" cols="50" rows="1" value=email2 placeholder="Confirm email"}}
+            </div>
+            <div class="field">
+                <label>Password</label>
+                {{input type="password" cols="50" rows="1" value=password1 placeholder="Add password"}}
+            </div>
+            <div class="field">
+                <label>Confirm Password</label>
+                {{input type="password" cols="50" rows="1" value=password2 placeholder="Confirm password"}}
+            </div>
+            <div class="field">
+                <label>User Account Name</label>
+                {{textarea value=userAccountName cols="50" rows="1" placeholder="Add user account name"}}
+            </div>
+            <div class="field">
+                <label>Phone</label>
+                {{textarea value=phone cols="50" rows="1" placeholder="Add phone"}}
+            </div>
+            <div class="field">
+                <label>First Name</label>
+                {{textarea value=givenName cols="50" rows="1" placeholder="Add first name"}}
+            </div>
+            <div class="field">
+                <label>Last Name</label>
+                {{textarea value=familyName cols="50" rows="1" placeholder="Add last name"}}
+            </div>
+            <div class="field">
+                <label>Gender</label>
+                {{#ui-dropdown class="selection" onChange=(action (mut gender))}}
+                    <div class="default text">Gender</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        {{#each genderModel as |gender|}}
+                            <div class="item" data-value="{{gender.id}}">
+                                {{gender.name}}
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/ui-dropdown}}
+            </div>
+            <div class="field">
+                <label>
+                    Date of Birth
+                    {{pikaday-input value=date format="MM/DD/YY" yearRange="120" readonly="readonly" onSelection=(action 'selectDate') placeholder="Select Date"}}
+                </label>
+            </div>
+            <div class="field">
+                <label>Country</label>
+                {{#ui-dropdown class="selection" onChange=(action (mut country))}}
+                    <div class="default text">Country</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        {{#each countryModel as |country|}}
+                            <div class="item" data-value="{{country.id}}">
+                                {{country.name}}
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/ui-dropdown}}
+            </div>
+            <div class="field">
+                <label>Province</label>
+                {{#ui-dropdown class="selection" onChange=(action (mut province))}}
+                    <div class="default text">province</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        {{#each provinceModel as |province|}}
+                            <div class="item" data-value="{{province.id}}">
+                                {{province.name}}
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/ui-dropdown}}
+            </div>
+            <div class="field">
+                <label>City</label>
+                {{#ui-dropdown class="selection" onChange=(action (mut city))}}
+                    <div class="default text">City</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        {{#each cityModel as |city|}}
+                            <div class="item" data-value="{{city.id}}">
+                                {{city.name}}
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/ui-dropdown}}
+            </div>
+            <div class="field">
+                <label>Postal Code</label>
+                {{textarea value=postalCode cols="50" rows="1" placeholder="Add postal code"}}
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="actions">
+        <div class="ui black deny button">
+            Cancel
+        </div>
+        <div class="ui positive right labeled icon button">
+            Save
+            <i class="checkmark icon"></i>
+        </div>
+        <br><br>
+    </div>
+{{/ui-modal}}

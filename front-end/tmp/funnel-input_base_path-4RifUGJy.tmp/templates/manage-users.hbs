@@ -1,0 +1,114 @@
+<br>
+<div class="ui secondary pointing menu">
+    <a class="item">{{#link-to "admin-profile"}}Profile{{/link-to}}</a>
+  <a class="item">{{#link-to "forms"}}Forms Questions{{/link-to}}</a>
+  <a class="item">{{#link-to "questions"}}Questions{{/link-to}}</a>
+  <a class="item">{{#link-to "injury-forms"}}Injury Forms{{/link-to}}</a>
+  <a class="active item">
+    {{#link-to "manage-users"}}Manage Users{{/link-to}}
+  </a>
+</div>
+<div style='margin-left: 4em;'>
+  <h2>Disable/Enable Accounts</h2>
+</div>
+<!-- need a css change for this modal position -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12" style="margin: 30px;">
+      <table id="example" class="ui celled table" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Modify</th>
+            <th>Enable/Disable</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Modify</th>
+            <th>Enable/Disable</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          {{#each model as |onePost|}}
+            <tr>
+              <td>{{onePost.userAccountName}}</td>
+              {{#if onePost.role.isPatientProfile}}
+                <td>
+                  Patient Profile
+                </td>
+                {{#if onePost.patientProfile.enabled}}
+                  <td>
+                    Enabled
+                  </td>
+                  <td>
+                    <div class="ui red button" {{action 'enableUser' onePost.patientProfile.id}}>
+                      Disable
+                    </div>
+                  </td>
+                {{else}}
+                  <td>
+                    Disabled
+                  </td>
+                  <td>
+                    <div class="ui green button" {{action 'enableUser' onePost.patientProfile.id}}>
+                      Enable
+                    </div>
+                  </td>
+                {{/if}}
+                <td>
+                  {{modify-client-profile ID=onePost.patientProfile.id}}
+                </td>
+                {{else if onePost.role.isPhysiotherapist}}
+                  <td>
+                    Physiotherapist
+                  </td>
+                {{#if onePost.physiotherapist.enabled}}
+                  <td>
+                    Enabled
+                  </td>
+                  <td>
+                    <div class="ui red button" {{action 'enablePhysio' onePost.physiotherapist.id}}>
+                      Disable
+                    </div>
+                    {{appt-button}}
+                  </td>
+                {{else}}
+                  <td>
+                    Disabled
+                  </td>
+                  <td>
+                    <div class="ui green button" {{action 'enablePhysio' onePost.physiotherapist.id}}>
+                      Enable
+                    </div>
+                    {{appt-button}}
+                  </td>
+                {{/if}}
+                <td>
+                  {{modify-physio-profile ID=onePost.physiotherapist.id byAdmin=true}}
+                </td>
+              {{/if}}
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div style="margin-left: 4em">
+  <h3>Create Accounts</h3>
+  <div style="display: inline-block">
+    {{register-physiotherapist}}
+  </div>
+  <div style="display: inline-block">
+    {{register-admin}}
+  </div>
+  <div style="display: inline-block">
+    {{register-user}}
+  </div>
+</div>

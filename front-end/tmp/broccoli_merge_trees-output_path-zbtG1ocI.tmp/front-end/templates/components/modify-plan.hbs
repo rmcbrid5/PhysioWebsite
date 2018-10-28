@@ -1,0 +1,194 @@
+<div class="ui green right floated animated button" style="min-width: 0px;" {{action 'openModal'}}>
+    <div class="visible content"><i class="edit icon"></i></div>
+    <div class="hidden content">Edit</div>
+</div>
+
+{{#ui-modal name=modalName class=modalName}}
+    <div class="header">
+        Modifying Rehabilitation Plan
+    </div>
+    <div class="scrolling content">
+        <div class="ui form">
+            <div class="field">
+                <label>Modify Name</label>
+                {{input type="text" cols="50" rows="1" value=name}}
+            </div>
+            <div class="field">
+                <label>Modify Description</label>
+                {{textarea value=description cols="50" rows="3" }}
+            </div>
+            <div class="field">
+                <label>Modify Goal</label>
+                {{textarea value=goal cols="50" rows="3" }}
+            </div>
+            <div class="field">
+                <label>Existing Assessment Tests</label>
+                <ol>
+                    {{#each existingAssessmentTests as |assessment|}}
+                    <div class="ii">
+                        <li>
+                            <div class="nn">
+
+                            <label>Assessment Test Name</label>
+
+                            </div>
+                            <div class="ii">
+                            <br>
+                            {{input type="text" cols="50" rows="1" value=assessment.name}}
+                          </div>
+                          <div class="ii">
+                          <br>
+                            <label>Assessment Test Description</label>
+                          </div>
+                          <div class="ii">
+                          <br>
+                            {{input type="text" cols="50" rows="1" value=assessment.description}}
+                          </div>
+                          <br>
+                            <div class="ui red right floated animated button gotcha" style="min-width: 0px; margin-right: 4em;" {{action 'removeExistingAssessmentTest' assessment}}>
+                                <div class="visible content">
+                                    Remove Assessment Test
+                                </div>
+                                <div class="hidden content">
+                                    <i class="delete icon"></i>
+                                </div>
+                            </div>
+                              <br>  <br> <br>
+                        </li>
+                      </div>
+                    {{/each}}
+                </ol>
+
+            </div>
+            <div class="field">
+                <label>New Assessment Tests</label>
+                <ol>
+                    {{#each assessmentTestModel as |assessment|}}
+                      <div>
+                        <li>
+                          <div>
+                            <label>Form</label>
+                            <br>
+                          </div>
+                            {{#ui-dropdown id=assessment.id class="selection left" onChange=(action 'selectForm' assessment)}}
+                                <div class="default text">Select an Assessment Test</div>
+                                <i class="dropdown icon"></i>
+                                <div class="menu">
+                                    <div data-value="" class="item">All Items</div>
+                                        {{#each formModel as |form|}}
+                                            <div data-value="{{form.id}}" class="item">
+                                                {{form.name}}
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                            {{/ui-dropdown}}
+                            <div>
+                            <br>
+                            <label>Assessment Test Name</label>
+                          </div>
+                          <div>
+                            <br>
+                            {{input type="text" cols="50" rows="1" value=assessment.name}}
+                          </div>
+                            <br>
+                            <label>Assessment Test Description</label>
+                            <div>
+                              <br>
+                            {{input type="text" cols="50" rows="1" value=assessment.description}}
+                          </div>
+                          <br>
+                            <div class="ui red right floated animated button gotcha" style="min-width: 0px; margin-right: 4em;" {{action 'removeAssessmentTest' assessment}}>
+                                <div class="visible content">
+                                    <i class="delete icon"></i>
+                                </div>
+                                <div class="hidden content">Remove</div>
+                            </div>
+                            <br><br><br>
+                        </li>
+                      </div>
+                    {{/each}}
+                </ol>
+                <div class="ui blue animated button" {{action 'addAssessmentTest'}}>
+                    <div class="visible content">Add New Assessment Test</div>
+                    <div class="hidden content">
+                        <i class="plus icon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label>Existing Exercises</label>
+                <ol>
+                    {{#each existingExercisesLists as |exercisesList|}}
+                    <div>
+                        <li>
+                            {{exercisesList.exercise.name}}
+                            <br>
+                            <div class="ui red right floated animated button gotcha" style="min-width: 0px; margin-right: 4em;" {{action 'removeExistingExercisesList' assessment}}>
+                                <div class="visible content">
+                                    Remove Exercise
+                                </div>
+                                <div class="hidden content">
+                                    <i class="delete icon"></i>
+                                </div>
+                            </div>
+                            <br><br><br>
+                        </li>
+                      </div>
+                    {{/each}}
+                </ol>
+            </div>
+            <div class="field">
+                <label>New Exercises</label>
+                <ol>
+                    {{#each exercisesListModel as |exercisesList|}}
+                    <div>
+                        <li>
+                          <label>Exercise</label>
+                          <br>
+                            {{#ui-dropdown class="selection left" onChange=(action 'selectExercise' exercisesList)}}
+                                <div class="default text">Select an Exercise</div>
+                                <i class="dropdown icon"></i>
+                                <div class="menu">
+                                    <div data-value="" class="item">All Items</div>
+                                        {{#each exerciseModel as |exercise|}}
+                                            <div data-value="{{exercise.id}}" class="item">
+                                                {{exercise.name}}
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                            {{/ui-dropdown}}
+                            <br>
+                            <div class="ui red right floated animated button gotcha" style="min-width: 0px; margin-right: 4em;" {{action 'removeExercisesList' exercisesList}}>
+                                <div class="visible content">
+                                    <i class="delete icon"></i>
+                                </div>
+                                <div class="hidden content">Remove</div>
+                            </div>
+                            <br><br><br>
+                        </li>
+                      </div>
+                    {{/each}}
+                </ol>
+                <div class="ui blue animated button" {{action 'addExercisesList'}}>
+                    <div class="visible content">Add Exercise</div>
+                    <div class="hidden content">
+                        <i class="plus icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+
+<div class="actions">
+    <div class="ui black deny button">
+        Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+        Save
+        <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+</div>
+{{/ui-modal}}
+<br><br>

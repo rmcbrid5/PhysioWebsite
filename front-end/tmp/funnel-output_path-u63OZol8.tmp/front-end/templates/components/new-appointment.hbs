@@ -1,0 +1,44 @@
+<br><br>
+<div class="rehabPlan">
+    <h2>Book Appointment</h2>
+    <div class="ui form" style="width: 30%">
+        <div class="field">
+            <label>
+                Date
+                {{
+                    pikaday-input value=date format="MM/DD/YY" readonly="readonly" onSelection=(action 'doSomethingWithSelectedValue') placeholder="Select Date" options=(hash disableWeekends=true)
+                }}
+            </label>
+        </div>
+        <div class="field">
+            <label>Time</label>
+            {{#ui-dropdown class="selection" selected=time onChange=(action (mut time)) as |execute mapper|}}
+            <div class="default text">Available Times</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                <div data-value="" class="item">Select from below...</div>
+                {{#each times as |t|}}
+                    <div data-value="{{map-value mapper t}}" class="item">
+                        {{t}}
+                    </div>
+                {{/each}}
+            </div>
+          {{/ui-dropdown}}
+        </div>
+        <div class="field">
+            <label>Reason For Appointment</label>
+            {{input type="text" placeholder="Reason" value=reason}}
+        </div>
+        <div class="field">
+            <label>Additional Notes</label>
+            {{input type="text" placeholder="Notes" value=other}}
+        </div>
+    </div>
+    <br><br>
+    <div class="actions">
+            <div {{action 'BookAppointment'}} class="ui positive right labeled icon button" style="background-color: #4f9ec7">
+                Book Appointment
+                <i class="checkmark icon"></i>
+            </div>
+    </div>
+</div>

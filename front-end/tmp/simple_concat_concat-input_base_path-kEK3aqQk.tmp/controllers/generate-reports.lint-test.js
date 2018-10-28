@@ -1,0 +1,4 @@
+QUnit.test('controllers/generate-reports.js', function(assert) {
+  assert.expect(1);
+  assert.ok(false, 'controllers/generate-reports.js should pass ESLint\n\n12:6 - Unexpected console statement. (no-console)\n13:21 - \'jsPDF\' is not defined. (no-undef)\n24:21 - \'jsPDF\' is not defined. (no-undef)\n69:15 - \'i\' is already defined. (no-redeclare)\n70:17 - \'j\' is already defined. (no-redeclare)\n90:15 - \'i\' is already defined. (no-redeclare)\n91:17 - \'j\' is already defined. (no-redeclare)\n104:6 - Do not use global `$` or `jQuery` (ember/no-global-jquery)\n104:6 - \'$\' is not defined. (no-undef)\n105:14 - \'table\' is assigned a value but never used. (no-unused-vars)\n105:22 - Do not use global `$` or `jQuery` (ember/no-global-jquery)\n105:22 - \'$\' is not defined. (no-undef)');
+});

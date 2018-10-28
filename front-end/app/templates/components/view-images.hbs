@@ -1,0 +1,47 @@
+<div class="ui blue right floated animated button" {{action 'openModal'}}>
+  <div class="visible content">View Images</div>
+  <div class="hidden content">
+    <i class="plus icon"></i>
+  </div>
+</div>
+{{#ui-modal name="viewImages" class="viewImages"}}
+  <div class="header">
+    View User's Images
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <table id="example" class="ui celled table" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Image</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          {{#each imageModel as |image|}}
+          <tr>
+            <td>{{image.name}}</td>
+            <td>{{image.size}}</td>
+            <td><img src={{image.imageData}}></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui positive right labeled icon button">
+      Finished
+      <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+  </div>
+{{/ui-modal}}

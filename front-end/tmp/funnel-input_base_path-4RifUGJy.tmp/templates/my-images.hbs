@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<div class="ui secondary pointing menu">
+  <div class="item">{{#link-to 'clients'}}Profile{{/link-to}}</div>
+  <div class="item">{{#link-to 'book-appointment'}}Book Appointment{{/link-to}}</div>
+  <div class="item">{{#link-to 'make-payment'}}Make Payment{{/link-to}}</div>
+  <div class="item">{{#link-to 'treatments'}}Treatments{{/link-to}}</div>
+  <div class="active item">{{#link-to 'my-images'}}My Uploaded Images{{/link-to}}</div>
+</div>
+<br><br>
+<div style="margin-left: 4em; margin-right: 4em">
+  <h2>My Uploaded Images</h2>
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <table id="example" class="ui celled table" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Image</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Image</th>
+            <th>Delete</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          {{#each model as |image|}}
+          <tr>
+            <td>{{image.name}}</td>
+            <td>{{image.size}}</td>
+            <td><img src={{image.imageData}}></td>
+            <td>
+              <div class="ui red right floated animated button" style="min-width: 0px; margin-right: 4em;" {{action 'deleteImage' image.id}}>
+                <div class="visible content">
+                  <i class="delete icon"></i>
+                </div>
+                <div class="hidden content">Delete</div>
+              </div>
+              {{appt-button}}
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,138 @@
+<br><br>
+<div class="ui blue animated button" {{action 'openModal'}}>
+    <div class="visible content">Add New Exercise</div>
+    <div class="hidden content">
+        <i class="plus icon"></i>
+    </div>
+</div>
+
+{{#ui-modal name="newExercise" class="newExercise"}}
+    <div class="header">
+        Adding New Exercise
+    </div>
+    <div class="scrolling content">
+        <div class="ui form">
+            <div class="field">
+                <label>Name</label>
+                {{input type="text" cols="50" rows="1" value=name placeholder="Add name"}}
+            </div>
+            <div class="field">
+                <label>Description</label>
+                {{textarea value=description cols="50" rows="3" placeholder="Add description"}}
+            </div>
+            <div class="field">
+                <label>Objectives</label>
+                <ul>
+                    {{#each objectiveModel as |objective|}}
+                    <li>
+                        {{input type="text" cols="50" rows="1" value=objective.value}}
+                        <div class="ui red right floated animated button" style="min-width: 0px; margin-right: 4em;" {{action 'removeObjective' objective}}>
+                            <div class="visible content">
+                                <i class="delete icon"></i>
+                            </div>
+                            <div class="hidden content">Remove Objective</div>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+                <div class="ui blue animated button" {{action 'addObjective'}}>
+                    <div class="visible content">Add New Objective</div>
+                    <div class="hidden content">
+                        <i class="plus icon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label>Action Steps</label>
+                <ol>
+                    {{#each actionStepModel as |actionStep|}}
+                        <li>
+                            {{input type="text" cols="50" rows="1" value=actionStep.value}}
+                        </li>
+                        <div class="ui red right floated animated button" style="min-width: 0px; margin-right: 4em;" {{action 'removeActionStep' actionStep}}>
+                            <div class="visible content">
+                                <i class="delete icon"></i>
+                            </div>
+                            <div class="hidden content">Remove Action Step</div>
+                        </div>
+                    {{/each}}
+                </ol>
+                <div class="ui blue animated button" {{action 'addActionStep'}}>
+                    <div class="visible content">Add New Action Step</div>
+                    <div class="hidden content">
+                        <i class="plus icon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label>Frequency</label>
+                  {{textarea value=frequency cols="50" rows="1" placeholder="Add frequency"}}
+            </div>
+            <div class="field">
+                <label>Duration</label>
+                  {{textarea value=duration cols="50" rows="1" placeholder="Add duration"}}
+            </div>
+            <div class="field">
+                <label>Image</label>
+                {{#each queue as |file| }}
+                    <div class="ui divided demo items">
+                    <div class="item">
+                    <div class="image">
+                        {{#if file.isUploading}}
+                        <div class="ui active inverted dimmer">
+                            <div class="ui loader"></div>
+                        </div>
+                        {{else}}
+                        <img src="{{file.base64Image}}">
+                        {{/if }}
+                    </div>
+                    <div class="middle aligned content">
+                        <div class="header">{{file.name}}</div>
+                        <div class="meta">
+                        <span>Size: {{file.size}}</span>
+                        </div>
+                        <div class="description">
+                        {{#if file.isDisplayableImage}}
+                            <br>
+                        {{else}}
+                            <p>Unsupported image</p>
+                        {{/if}}
+                        </div>
+                        <div class="extra">
+                        <button class="ui icon red basic button" {{action 'deleteFile' file}}>
+                            <i class="remove icon"></i>
+                        </button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                {{else}}
+                <div class="ui fluid labeled input">
+                    <label class="ui fluid huge label" style="{{labelStyle}}">
+                    <i class="big cloud upload icon"></i>
+                    Click or Drop files into this area to upload files
+                    </label>
+                    <input type="file" value="target.value" onchange={{action "selectFile"}} style="{{inputStyle}}"
+                        accept="{{accept}}" multiple={{multiple}}>
+                </div>
+                <br>
+                <button class="ui black button" {{action 'done' file}}>
+                    Cancel
+                </button>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+<br>
+
+<div class="actions">
+    <div class="ui black deny button">
+        Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+        Save
+        <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+</div>
+{{/ui-modal}}

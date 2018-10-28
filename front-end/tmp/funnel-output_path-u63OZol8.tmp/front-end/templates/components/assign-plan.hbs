@@ -1,0 +1,79 @@
+<div class="ui green right floated animated button" style="min-width: 0px;" {{action 'openModal'}}>
+    <div class="visible content">
+        Assign Plan
+    </div>
+    <div class="hidden content">
+        <i class="id card outline icon"></i>
+    </div>
+</div>
+{{#ui-modal name=modalName class=modalName}}
+<div class="header">
+  Assign Plan to Patient
+</div>
+<div class="scrolling content">
+    <div class="ui form">
+        <div class="field">
+            <label>Currently Assigned Rehabilitation Plans</label>
+            <ul>
+                {{#each existingTreatments as |treatment|}}
+                    <li>
+                        {{treatment.rehabilitationPlan.name}}
+                        <div class="ui red right floated animated button" {{action 'removeExistingTreatment' treatment}}>
+                            <div class="visible content">
+                                Remove Treatment
+                            </div>
+                            <div class="hidden content">
+                                <i class="delete icon"></i>
+                            </div>
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="field">
+            <label>Rehabilitation Plans to be Assigned</label>
+            <ul>
+                {{#each treatmentModel as |treatment|}}
+                    <li>
+                        {{#ui-dropdown class="selection" onChange=(action 'selectRehabilitationPlan' treatment)}}
+                            <div class="default text">Select a Rehabilitation Plan</div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div data-value="" class="item">All Items</div>
+                                {{#each rehabilitationPlanModel as |rehabilitationPlan|}}
+                                    <div data-value="{{rehabilitationPlan.id}}" class="item">
+                                        {{rehabilitationPlan.name}}
+                                    </div>
+                                {{/each}}
+                            </div>
+                        {{/ui-dropdown}}
+                        <div class="ui red right floated animated button" style="min-width: 0px; margin-right: 4em;" {{action 'removeTreatment' treatment}}>
+                            <div class="visible content">
+                                <i class="delete icon"></i>
+                            </div>
+                            <div class="hidden content">Remove Rehabilitation Plan</div>
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+            <div class="ui blue animated button" {{action 'addTreatment'}}>
+                    <div class="visible content">Add Treatment</div>
+                    <div class="hidden content">
+                        <i class="plus icon"></i>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="actions">
+  <div class="ui red deny button">
+    No
+  </div>
+  <div class="ui positive right labeled icon button">
+    Yes
+    <i class="checkmark icon"></i>
+  </div>
+</div>
+{{/ui-modal}}

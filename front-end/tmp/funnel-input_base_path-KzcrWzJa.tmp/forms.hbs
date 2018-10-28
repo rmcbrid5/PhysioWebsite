@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<br>
+<div class="ui secondary pointing menu">
+    <a class="item">{{#link-to "admin-profile"}}Profile{{/link-to}}</a>
+  <a class="active item">{{#link-to "forms"}}Forms Questions{{/link-to}}</a>
+  <a class="item">{{#link-to "questions"}}Questions{{/link-to}}</a>
+  <a class="item">{{#link-to "injury-forms"}}Injury Forms{{/link-to}}</a>
+  <a class="item">
+    {{#link-to "manage-users"}}Manage Users{{/link-to}}
+  </a>
+</div>
+<div style='margin-left: 4em;'>
+    <h2>Manage Forms</h2>
+</div>
+
+<!-- need a css change for this modal position -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12" style="margin: 30px;">
+            <table id="example" class="ui celled table" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Administrator</th>
+                        <th>Edit/Delete</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Administrator</th>
+                        <th>Edit/Delete</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {{#each model as |onePost|}}
+                        <tr>
+                            <td>{{onePost.name}}</td>
+                            <td>{{onePost.description}}</td>
+                            <td>{{onePost.administrator.givenName}} {{onePost.administrator.familyName}}</td>
+                            <td>
+                                {{delete-form ID=onePost.id}}{{modify-form ID=onePost.id administrator=onePost.administrator name=onePost.name description=onePost.description questionsLists=onePost.questionsLists}}
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{add-form}}
+        </div>
+    </div>
+</div>

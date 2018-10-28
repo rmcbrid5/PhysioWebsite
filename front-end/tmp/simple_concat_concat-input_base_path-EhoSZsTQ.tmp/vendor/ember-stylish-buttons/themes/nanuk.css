@@ -1,0 +1,111 @@
+/* Nanuk */
+.button--nanuk {
+	padding: 0 2em;
+	overflow: hidden;
+	background: #7986cb;
+	transition: background-color 0.3s;
+}
+.button--nanuk.button--inverted {
+	background: #fff;
+	color: #7986cb;
+}
+.button--nanuk > span {
+	display: inline-block;
+	padding: 1em 0;
+}
+.button--nanuk:hover {
+	background-color: #3f51b5;
+}
+.button--nanuk:hover > span:nth-child(odd) {
+	animation: anim-nanuk-1 0.5s forwards;
+}
+.button--nanuk:hover > span:nth-child(even) {
+	animation: anim-nanuk-2 0.5s forwards;
+}
+.button--nanuk:hover > span:nth-child(odd),
+.button--nanuk:hover > span:nth-child(even) {
+	transition-animation-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+
+@keyframes anim-nanuk-1 {
+	0%,
+	100% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+	49% {
+		opacity: 1;
+		transform: translate3d(0, 100%, 0);
+	}
+	50% {
+		opacity: 0;
+		transform: translate3d(0, 100%, 0);
+		color: inherit;
+	}
+	51% {
+		opacity: 0;
+		transform: translate3d(0, -100%, 0);
+		color: #fff;
+	}
+	100% {
+		color: #fff;
+	}
+}
+
+@keyframes anim-nanuk-2 {
+	0%,
+	100% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+	49% {
+		opacity: 1;
+		transform: translate3d(0, -100%, 0);
+	}
+	50% {
+		opacity: 0;
+		transform: translate3d(0, -100%, 0);
+		color: inherit;
+	}
+	51% {
+		opacity: 0;
+		transform: translate3d(0, 100%, 0);
+		color: #fff;
+	}
+	100% {
+		color: #fff;
+	}
+}
+.button--nanuk:hover > span:nth-child(1) {
+	animation-delay: 0s;
+}
+.button--nanuk:hover > span:nth-child(2) {
+	animation-delay: 0.05s;
+}
+.button--nanuk:hover > span:nth-child(3) {
+	animation-delay: 0.1s;
+}
+.button--nanuk:hover > span:nth-child(4) {
+	animation-delay: 0.15s;
+}
+.button--nanuk:hover > span:nth-child(5) {
+	animation-delay: 0.2s;
+}
+.button--nanuk:hover > span:nth-child(6) {
+	animation-delay: 0.25s;
+}
+.button--nanuk:hover > span:nth-child(7) {
+	animation-delay: 0.3s;
+}
+.button--nanuk:hover > span:nth-child(8) {
+	animation-delay: 0.35s;
+}
+.button--nanuk:hover > span:nth-child(9) {
+	animation-delay: 0.4s;
+}
+.button--nanuk:hover > span:nth-child(10) {
+	animation-delay: 0.45s;
+}
+.button--nanuk:hover > span:nth-child(11) {
+	animation-delay: 0.5s;
+}

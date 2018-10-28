@@ -1,0 +1,26 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+</head>
+<div class="header" style="font-family:'Krona One'; text-align: center; font-size:22px">        LOGIN
+</div><br /><br />
+<div class="scrolling content">
+    <div class="ui form">
+        <div class="field">
+            <label>User Account Name</label>
+            {{input type="text" placeholder="User Account Name" value=userAccountName}}
+        </div>
+        <div class="field">
+            <label>Password</label>
+            {{input type="password" placeholder="Password" value=password}}
+        </div>
+    </div>
+</div>
+<br><br />
+
+<div class="actions" style="text-align: center">
+    <div class="ui blue right labeled icon button" {{action "login"}}>
+        Login
+        <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+</div>

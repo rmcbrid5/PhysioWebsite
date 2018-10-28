@@ -1,0 +1,121 @@
+<div class="ui blue right floated animated button" style="min-width: 0px;" {{action 'openModal'}}>
+    <div class="visible content"><i class="edit icon"></i></div>
+    <div class="hidden content">Edit</div>
+</div>
+
+{{#ui-modal name=modalName class=modalName}}
+    <div class="header">
+        Modifying User
+    </div>
+    <div class="scrolling content">
+        <div class="ui form">
+            <div class="field">
+                <label>Modify First Name</label>
+                {{input type="text" value=givenName cols="50" rows="1"}}
+            </div>
+            <div class="field">
+                <label>Modify Last Name</label>
+                {{input type="text" value=familyName cols="50" rows="1"}}
+            </div>
+            {{#if role.isPatientProfile}}
+                <div class="field">
+                    <label>Modify Postal Code</label>
+                    {{input value=postalCode cols="50" rows="1" }}
+                </div>
+                <div class="field">
+                    <label>Modify Phone</label>
+                    {{input value=phone cols="50" rows="1" }}
+                </div>
+                <div class="field">
+                    <label>Modify Country</label>
+                    {{#ui-dropdown class="selection" onChange=(action (mut country))}}
+                        <div class="default text">Country</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            {{#each countryModel as |country|}}
+                                <div class="item" data-value="{{country.id}}">
+                                    {{country.name}}
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/ui-dropdown}}
+                </div>
+                <div class="field">
+                    <label>Modify Province</label>
+                    {{#ui-dropdown class="selection" onChange=(action (mut province))}}
+                        <div class="default text">Province</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            {{#each provinceModel as |province|}}
+                                <div class="item" data-value="{{province.id}}">
+                                    {{province.name}}
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/ui-dropdown}}
+                </div>
+                <div class="field">
+                    <label>Modify City</label>
+                    {{#ui-dropdown class="selection" onChange=(action (mut city))}}
+                        <div class="default text">City</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            {{#each cityModel as |city|}}
+                                <div class="item" data-value="{{city.id}}">
+                                    {{city.name}}
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/ui-dropdown}}
+                </div>
+                <div class="field">
+                    <label>Modify Gender</label>
+                    {{#ui-dropdown class="selection" onChange=(action (mut gender))}}
+                        <div class="default text">Gender</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            {{#each genderModel as |gender|}}
+                                <div class="item" data-value="{{gender.id}}">
+                                    {{gender.name}}
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/ui-dropdown}}
+                </div>
+            {{else}}
+                <div class="field">
+                    <label>Modify Date Hired</label>
+                    {{pikaday-input value=date format="MM/DD/YY" readonly="readonly" onSelection=(action 'selectDateHired') placeholder="Select Date"}}
+                </div>
+                <div class="field">
+                    <label>Modify Date Finished</label>
+                    {{pikaday-input value=date format="MM/DD/YY" readonly="readonly" onSelection=(action 'selectDateFinished') placeholder="Select Date"}}
+                </div>
+            {{/if}}
+            <div class="field">
+                <label>Disable Account</label>
+                <div class="ui toggle checkbox">
+                  <!-- {{#each userAccountModel as |user|}} -->
+                      <!-- <div class="item" data-value="{{user.id}}">
+                          {{user.active}} -->
+                          <input type="checkbox" name="public" id="toggle-1"><label class="dn" for="toggle-1" data-content="OFF"></label>
+                      <!-- </div> -->
+                  <!-- {{/each}} -->
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+
+<div class="actions">
+    <div class="ui black deny button">
+        Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+        Save
+        <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+</div>
+{{/ui-modal}}
+<br><br>

@@ -1,0 +1,229 @@
+
+<style>
+body {
+  margin: 0;
+  min-width: 250px;
+}
+
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+ul li:nth-child(odd):hover {
+  background:  #0d84dd;
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+  background: #0d84dd;
+}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+/* Style the close button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Style the header */
+.header {
+  background-color: #2e70b5;
+  padding: 30px 40px;
+  color: white;
+  /* text-align: center; */
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+input {
+  border: none;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+  height: 40px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  height: 40px;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+
+ul li{
+  background: #1951ae;
+}
+
+ul li:nth-child(2n+1){
+  background: #0e359f;
+}
+
+</style>
+<body>
+
+<div class="container todolist" style="margin: 6em;">
+
+
+<div id="myDIV" class="header">
+  <h2 style="margin:5px">My To Do List</h2>
+  <!-- <input type="text" id="myInput" placeholder="Title...">
+  <span onclick="newElement()" class="addBtn">Add</span> -->
+  <div>
+        <br>
+  </div>
+
+  <form class="form-inline">
+  <div class="form-group">
+    {{input id='myInput' type='text' placeholder='Task name' value=newTask class='form-control'}}
+  </div>
+  <button class="addBtn" {{action 'addTodo'}} class="btn btn-primary">Add</button>
+</form>
+
+  <br>
+
+
+<div class="row">
+  <div class="col-xs-12">
+    <div>
+          <br>
+    </div>
+    <h4><b></b></h4>
+    <ul id="myUL">
+      {{#each todo in model2}}
+      <li>
+        {{todo.task}}
+      </li>
+      {{/each}}
+      <!-- {{#each todo in model2 itemController='todo'}}
+        <li>
+          {{#if todo.isEditing}}
+          <form class="form-inline">
+            <div class="form-group">
+              {{input type='text' placeholder='Task name' value=todo.model.task class='form-control'}}
+            </div>
+            <button {{action 'updateTodo'}} class="btn btn-primary">update</button>
+            <button {{action 'cancel'}} class="btn btn-default">cancel</button>
+            </form>
+          {{else}}
+            <h4 {{bind-attr class="todolist.completed:strike"}}>
+              {{input type="checkbox" checked=todo.completed class="toggle"}}
+              {{todo.model2.task}}
+              <div class="actions">
+                <a {{action 'editTodo'}} href class="edit-todo">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+                <a {{action 'removeTodo' todo}} href class="remove-todo">
+                  <span class="glyphicon glyphicon-remove"></span>
+                </a>
+              </div>
+            </h4>
+          {{/if}}
+        </li>
+        <hr>
+      {{else}}
+        <h4>No Tasks to do</h4>
+      {{/each}} -->
+    </ul>
+  </div>
+</div>
+
+</div>
+</div>
+<!-- <ul id="myUL">
+  <li>Hit the gym</li>
+  <li class="checked">Pay bills</li>
+  <li>Meet George</li>
+  <li>Buy eggs</li>
+  <li>Read a book</li>
+  <li>Organize office</li>
+</ul> -->
+
+
+<!--
+<ul id="myUL" {{action "pressed"}}>
+  <li>Hit the gym</li>
+  <li class="checked">Pay bills</li>
+  <li>Meet George</li>
+  <li>Buy eggs</li>
+  <li>Read a book</li>
+  <li>Organize office</li>
+</ul> -->
+<!--
+</div>
+
+</body> -->
+</body>

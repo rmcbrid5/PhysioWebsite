@@ -1,0 +1,32 @@
+<div class="ui blue right floated button" style="min-width: 0px;" {{action 'openModal'}}>
+    View
+</div>
+
+{{#ui-modal name=modalName class=modalName}}
+    <div class="header">
+        Injury Form Information
+    </div>
+    <div class="scrolling content">
+        <div class="ui form">
+          {{#each completedInjuryForm.injuryResults as |injuryResult|}}
+              <h5>Question</h5>
+              {{injuryResult.questionText}}
+              <h5>Answer</h5>
+              {{injuryResult.answer}}
+          {{/each}}
+        </div>
+    </div>
+<br>
+
+<div class="actions">
+    <!-- <div class="ui black deny button">
+        Cancel
+    </div> -->
+    <div class="ui positive right labeled icon button">
+        Return
+        <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+</div>
+{{/ui-modal}}
+<br><br>

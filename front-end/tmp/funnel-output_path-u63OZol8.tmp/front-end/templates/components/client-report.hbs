@@ -1,0 +1,44 @@
+<div {{action 'openModal'}}>
+  <a href="#">Send Comments</a>
+</div>
+
+{{#ui-modal name=modalName class=modalName}}
+    <div class="header">
+        Send Comments to Client
+    </div>
+    <div class="scrolling content">
+        <div class="ui form">
+            <div class="field">
+                <label>Comments: </label>
+                {{textarea value=description cols="50" rows="5" placeholder='Summarize the examination findings and treatment plan here.' }}
+            </div>
+            <div class="field">
+                <label>Send to: </label>
+                {{#ui-dropdown class="selection" onChange=(action (mut administrator))}}
+                    <div class="default text">Choose Client</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        {{#each profileModel as |a|}}
+                            <div class="item" data-value="{{a.id}}">
+                                {{a.givenName}} {{a.familyName}}
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/ui-dropdown}}
+            </div>
+        </div>
+    </div>
+<br>
+
+<div class="actions">
+    <div class="ui black deny button">
+        Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+        Send
+        <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+</div>
+{{/ui-modal}}
+<br><br>

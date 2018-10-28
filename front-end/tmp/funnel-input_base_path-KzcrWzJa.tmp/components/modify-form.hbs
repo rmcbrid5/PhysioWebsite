@@ -1,0 +1,101 @@
+<div class="ui green right floated animated button" style="min-width: 0px;" {{action 'openModal'}}>
+    <div class="visible content"><i class="edit icon"></i></div>
+    <div class="hidden content">Edit</div>
+</div>
+
+{{#ui-modal name=modalName class=modalName}}
+    <div class="header">
+        Modifying Form
+    </div>
+    <div class="scrolling content">
+        <div class="ui form">
+            <div class="field">
+                <label>Modify Name</label>
+                {{input type="text" cols="50" rows="1" value=name}}
+            </div>
+            <div class="field">
+                <label>Modify Description</label>
+                {{textarea value=description cols="50" rows="3" }}
+            </div>
+            <div class="field">
+                <label>Existing Questions</label>
+                <ol>
+                    {{#each questionsListsQuestions as |questionsList|}}
+                        <div class="ii">
+                            <li>
+                                <div class="nn">
+                                    {{questionsList.question.questionText}}
+                                </div>
+                            
+                                <br>
+                                <div class="ui red right floated animated button gotcha" style="min-width: 0px; margin-right: 4em;" {{action 'removeExistingQuestionsList' questionsList}}>
+                                    <div class="visible content">
+                                        Remove Question
+                                    </div>
+                                    <div class="hidden content">
+                                        <i class="delete icon"></i>
+                                    </div>
+                                </div>
+                                <br>  <br> <br>
+                            </li>
+                        </div>
+                    {{/each}}
+                </ol>
+            </div>
+            <div class="field">
+                <label>New Questions</label>
+                <ol>
+                    {{#each newQuestions as |newQuestion|}}
+                        <div>
+                            <li>
+                                <div>
+                                    <label>Question</label>
+                                    <br>
+                                </div>
+                                {{#ui-dropdown class="selection left" onChange=(action 'selectQuestion' newQuestion)}}
+                                    <div class="default text">Select a Question</div>
+                                    <i class="dropdown icon"></i>
+                                    <div class="menu">
+                                        <div data-value="" class="item">All Items</div>
+                                        {{#each questionModel as |question|}}
+                                            <div data-value="{{question.id}}" class="item">
+                                                {{question.questionText}}
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                                {{/ui-dropdown}}
+                                <br>
+                                <div class="ui red right floated animated button gotcha" style="min-width: 0px; margin-right: 4em;" {{action 'removeNewQuestion' newQuestion}}>
+                                    <div class="visible content">
+                                        <i class="delete icon"></i>
+                                    </div>
+                                    <div class="hidden content">Remove</div>
+                                </div>
+                                <br><br><br>
+                            </li>
+                        </div>
+                    {{/each}}
+                </ol>
+                <div class="ui blue animated button" {{action 'addQuestion'}}>
+                    <div class="visible content">Add New Question</div>
+                    <div class="hidden content">
+                        <i class="plus icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+
+<div class="actions">
+    <div class="ui black deny button">
+        Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+        Save
+        <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+</div>
+{{/ui-modal}}
+<br><br>

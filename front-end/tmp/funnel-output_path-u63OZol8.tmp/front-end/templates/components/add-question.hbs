@@ -1,0 +1,50 @@
+<br><br>
+<div class="ui blue animated button" {{action 'openModal'}}>
+    <div class="visible content">Add New Question</div>
+    <div class="hidden content">
+        <i class="plus icon"></i>
+    </div>
+</div>
+{{#ui-modal name="newQuestion" class="newQuestion"}}
+    <div class="header">
+        Adding New Question
+    </div>
+    <div class="scrolling content">
+        <div class="ui form">
+            <div class="field">
+                <label>Question Text</label>
+                {{input type="text" cols="50" rows="1" value=questionText placeholder="add question text"}}
+            </div>
+            <div class="field">
+                <label>Help Description</label>
+                {{textarea value=helpDescription cols="50" rows="3" placeholder="add help description"}}
+            </div>
+            <div class="field">
+                <label>Question Type</label>
+                {{#ui-dropdown class="selection" onChange=(action (mut questionType))}}
+                    <div class="default text">Question Type</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        {{#each questionTypeModel as |questionType|}}
+                            <div class="item" data-value="{{questionType.id}}">
+                                {{questionType.name}}
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/ui-dropdown}}
+            </div>
+        </div>
+    </div>
+<br>
+
+<div class="actions">
+    <div class="ui black deny button">
+        Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+        Save
+        <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+</div>
+{{/ui-modal}}

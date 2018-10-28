@@ -1,0 +1,78 @@
+<br><br>
+<div class="ui blue animated button" {{action 'openModal'}}>
+    <div class="visible content">Add New Form</div>
+    <div class="hidden content">
+        <i class="plus icon"></i>
+    </div>
+</div>
+{{#ui-modal name="newForm" class="newForm"}}
+    <div class="header">
+        Adding New Form
+    </div>
+    <div class="scrolling content">
+        <div class="ui form">
+            <div class="field">
+                <label>Name</label>
+                {{input type="text" cols="50" rows="1" value=name placeholder="add name"}}
+            </div>
+            <div class="field">
+                <label>Description</label>
+                {{textarea value=description cols="50" rows="3" placeholder="add description"}}
+            </div>
+            <div class="field">
+                <label>Questions</label>
+                <ol>
+                    {{#each questionsModel as |q|}}
+                    <div>
+                        <li>
+                          <label>Question</label>
+                          <br>
+                            {{#ui-dropdown class="selection left" onChange=(action 'selectQuestion' q)}}
+                                <div class="default text">Select a Question</div>
+                                <i class="dropdown icon"></i>
+                                <div class="menu">
+                                    <div data-value="" class="item">All Items</div>
+                                        {{#each questionModel as |question|}}
+                                            <div data-value="{{question.id}}" class="item">
+                                                {{question.questionText}}
+                                            </div>
+
+                                        {{/each}}
+                                    </div>
+                            {{/ui-dropdown}}
+                            <div>
+                            <br>
+                          </div>
+                            <div class="ui red right floated animated button gotcha" style="min-width: 0px; margin-right: 4em;" {{action 'removeQuestion' q}}>
+                                <div class="visible content">
+                                    <i class="delete icon"></i>
+                                </div>
+                                <div class="hidden content">Remove</div>
+                            </div>
+                            <br><br><br>
+                        </li>
+                        </div>
+                    {{/each}}
+                </ol>
+                <div class="ui blue animated button" {{action 'addQuestion'}}>
+                    <div class="visible content">Add New Question</div>
+                    <div class="hidden content">
+                        <i class="plus icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+
+<div class="actions">
+    <div class="ui black deny button">
+        Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+        Save
+        <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+</div>
+{{/ui-modal}}

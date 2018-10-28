@@ -1,0 +1,26 @@
+{
+  "name": "mongodb-server-side",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "brace-expansion": "^1.1.11",
+    "combined-stream": "^1.0.6",
+    "csprng": "^0.1.2",
+    "express": "^4.16.2",
+    "fast-deep-equal": "^1.1.0",
+    "form-data": "^2.3.2",
+    "hoek": "^5.0.3",
+    "mongoose": "^5.0.9",
+    "nodemailer": "^4.6.2",
+    "osenv": "^0.1.5",
+    "readable-stream": "^2.3.5",
+    "tough-cookie": "^2.3.4"
+  }
+}

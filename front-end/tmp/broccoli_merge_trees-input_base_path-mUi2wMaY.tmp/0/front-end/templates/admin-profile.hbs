@@ -1,0 +1,21 @@
+<br>
+<div class="ui secondary pointing menu">
+    <a class="active item">{{#link-to "admin-profile"}}Profile{{/link-to}}</a>
+  <a class="item">{{#link-to "forms"}}Forms Questions{{/link-to}}</a>
+  <a class="item">{{#link-to "questions"}}Questions{{/link-to}}</a>
+  <a class="item">{{#link-to "injury-forms"}}Injury Forms{{/link-to}}</a>
+  <a class="item">
+    {{#link-to "manage-users"}}Manage Users{{/link-to}}
+  </a>
+</div>
+<div style="margin-left: 4em; margin-right: 4em">
+    <h2>{{model.givenName}} {{model.familyName}}</h2>
+    <h4>User Account Name</h4>
+    {{model.userAccount.userAccountName}}
+    <h4>Email</h4>
+    {{model.email}}
+    <h4>Date Hired</h4>
+    {{model.dateHired}}
+    <br>
+    {{modify-admin-profile ID=model.id}}
+</div>

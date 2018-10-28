@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<br>
+<div class="ui tabular menu">
+    <a class="item">
+        {{#link-to 'physio-profile'}}Profile{{/link-to}}
+    </a>
+  <a class="item">
+    {{#link-to "exercise"}}Exercises{{/link-to}}
+  </a>
+  <a class="item">
+    {{#link-to "rehab-plans"}}Rehabilitation Plans{{/link-to}}
+  </a>
+  <a class="item">
+    {{#link-to "patient-profiles"}}Assign Rehabilitation Plans{{/link-to}}
+  </a>
+  <a class="active item">
+      {{#link-to "physio-completed-injury-forms"}}Completed Injury Forms{{/link-to}}
+  </a>
+  <a class="item">
+    {{#link-to "patient-images"}}User's Images{{/link-to}}
+  </a>
+  <a class="item">
+    {{#link-to "appointments"}}Upcoming Appointments{{/link-to}}
+  </a>
+  <a class="item">
+    {{#link-to 'generate-reports'}}Generate Patient Reports{{/link-to}}
+  </a>
+</div>
+<div style="margin-left: 4em; margin-right: 4em">
+    <h2>Completed Injury Forms</h2>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12" style="margin: 30px;">
+            <table id="example" class="ui celled table" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Injury Form Name</th>
+                        <th>View</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Email</th>
+                        <th>Injury Form Name</th>
+                        <th>View</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {{#each model as |completedInjuryForm|}}
+                      <tr>
+                      <td>{{completedInjuryForm.email}}</td>
+                      <td>{{completedInjuryForm.injuryForm.name}}</td>
+                      <td>
+                        {{show-injury-form ID=completedInjuryForm.id completedInjuryForm=completedInjuryForm}}
+                      </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+       var table = $('#example').DataTable();
+     }
+ );
+</script>

@@ -1,0 +1,173 @@
+.login{
+    width: 50%;
+    padding: 0 2em 2em 2em;
+    display: inline-block;
+    float: left;
+}
+.register{
+    width: 50%;
+    padding: 0 2em 2em 2em;
+    display: inline-block;
+    float: right;
+}
+.masthead {
+    text-align: center;
+    color: white;
+    background-image: url("/assets/images/rocks.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#contactForm{
+    padding: 0 4em 0 4em;
+}
+.masthead .intro-text {
+    color: white;
+    padding-top: 300px;
+    padding-bottom: 200px;
+}
+#mainNav{
+    padding-bottom: 5px;
+    margin-bottom: 0;
+    height: 9em;
+}
+.navbar-brand {
+  padding-left: 2em;
+}
+#contact, #about, #services{
+    text-align: center;
+    padding-top: 1em;
+}
+.intro-lead-in {
+    font-size: 40px;
+    font-style: italic;
+    line-height: 40px;
+    margin-bottom: 25px;
+    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.intro-heading {
+    font-size: 75px;
+    font-weight: 700;
+    line-height: 75px;
+    margin-bottom: 50px;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.stylebutton{
+    margin-left: 43%;
+}
+a{
+  color: #4f9ec7;
+}
+a:hover {
+  color: #9ec9e0;
+}
+
+section h2.section-heading {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+section h3.section-subheading {
+  font-size: 16px;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 75px;
+  text-transform: none;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: 150px 0;
+  }
+}
+.selection{
+    background-color: transparent;
+    border-color: transparent;
+    float: right;
+    border: 0px;
+}
+.rehabPlan{
+    margin-left: 4em;
+    margin-right: 4em;
+}
+.ui.selection.dropdown{
+    background: transparent;
+    width: 4em;
+    min-width: 10em;
+    border: 0px;
+}
+.ui.selection.active.dropdown{
+    border-color: transparent;
+}
+.ui.selection.active.dropdown:hover{
+    border-color: transparent;
+}
+.default-text{
+    color: #4f9ec7;
+}
+.ui.selection.dropdown:focus{
+    border-color: transparent;
+}
+.column {
+    float: left;
+    width: 33.33%;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.scrolling.undetached.dimmable .ui.scrolling.modal {
+    position: static;
+}
+td{
+}
+#menu {
+
+}
+.onetoten input {
+    margin-right: 10px;
+}
+
+.radiobtn input {
+    margin-right: 10px;
+}
+
+.ui[class*="right floated"].button.gotcha{
+  float: left;
+}
+
+.selection.left {
+    border-color: lightgrey;
+    float: initial;
+  }
+
+  .counter {
+      display: table-cell;
+      /* margin:1.5%; */
+      margin: auto;
+      font-size:50px;
+      background-color: #2e70b5;
+      width:200px;
+      border-radius: 50%;
+      height:200px;
+      vertical-align: middle;
+      color: white;
+  }
+
+  .jqur {
+    color:lightslategrey;
+    max-width:800px;
+    margin: auto 0;
+    text-align: center;
+    display: table;
+  }
+.ui.styled.accordion {
+    width: 75%;
+}

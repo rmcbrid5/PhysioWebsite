@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<script>
+ $(document).ready(function() {
+        var table = $('#example').DataTable();
+      }
+  );
+</script>
+<br>
+<div style="margin-left:4em; margin-right:4em">
+    <div class="injuryForm">
+        <h2>Fill an Injury Form</h2>
+        <table id="example" class="ui celled table" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Form</th>
+                    <th>Complete</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Name</th>
+                    <th>Form</th>
+                    <th>Complete</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                {{#each model as |onePost|}}
+                <tr>
+                    <td>{{onePost.name}}</td>
+                    <td>{{onePost.form.name}}</td>
+                    <td>
+                        {{complete-injury-form injuryForm=onePost}}
+                    </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

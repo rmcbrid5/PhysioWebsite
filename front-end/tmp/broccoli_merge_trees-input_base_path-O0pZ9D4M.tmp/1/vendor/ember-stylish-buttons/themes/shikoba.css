@@ -1,0 +1,36 @@
+/* Shikoba */
+.button.button--shikoba {
+	padding: 1em 30px 1em 50px;
+	overflow: hidden;
+	background: #fff;
+	color: #37474f;
+	border-color: #37474f;
+	transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+.button--shikoba.button--inverted {
+	color: #fff;
+	background: #7986cb;
+}
+.button--shikoba > span {
+	display: inline-block;
+	transform: translate3d(-10px, 0, 0);
+	transition: transform 0.3s;
+	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+.button--shikoba .button__icon {
+	position: absolute;
+	left: 20px;
+	font-size: 18px;
+	transform: translate3d(-40px, 2.5em, 0);
+	transition: transform 0.3s;
+	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+.button--shikoba:hover .button__icon,
+.button--shikoba:hover > span {
+	transform: translate3d(0, 0, 0);
+}
+.button--shikoba:hover {
+	background: #3f51b5;
+	border-color: #3f51b5;
+	color: #fff;
+}

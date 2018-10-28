@@ -1,0 +1,67 @@
+{{#each queue as |file| }}
+  <div class="ui divided demo items">
+    <div class="item">
+      <div class="image">
+        {{#if file.isUploading}}
+          <div class="ui active inverted dimmer">
+            <div class="ui loader"></div>
+          </div>
+        {{else}}
+          <img src="{{file.base64Image}}">
+        {{/if }}
+      </div>
+      <div class="middle aligned content">
+        <div class="header">{{file.name}}</div>
+        <div class="meta">
+          <span>Size: {{file.size}}</span>
+        </div>
+        <div class="description">
+          {{#if file.isDisplayableImage}}
+            <br>
+          {{else}}
+            <p>Unsupported image</p>
+          {{/if}}
+        </div>
+        <div class="extra">
+          {{#if file.isDisplayableImage}}
+            <button class="ui icon green basic button" {{action 'saveFile' file}}>
+              <i class="checkmark icon"></i>
+            </button>
+          {{/if}}
+          <button class="ui icon red basic button" {{action 'deleteFile' file}}>
+            <i class="remove icon"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+{{else}}
+  <div class="ui fluid labeled input">
+    <label class="ui fluid huge label" style="{{labelStyle}}">
+      <i class="big cloud upload icon"></i>
+      Click or Drop files into this area to upload files
+    </label>
+    <input type="file" value="target.value" onchange={{action "selectFile"}} style="{{inputStyle}}"
+           accept="{{accept}}" multiple={{multiple}}>
+  </div>
+  <br>
+  <button class="ui black button" {{action 'done' file}}>
+    Cancel
+  </button>
+{{/each}}
+
+
+{{#if queue}}
+  {{#if savingInProgress}}
+    <button class="ui labeled green icon loading button">Loading</button>
+  {{else}}
+    <button class="ui labeled green icon button"{{action 'saveAllFiles' }}>
+      <i class="checkmark icon"></i>
+      Save All
+    </button>
+  {{/if}}
+  <button class="ui labeled red icon button" {{action 'deleteAllFiles' }}>
+    <i class="remove icon"></i>
+    Remove All
+  </button>
+{{/if}}

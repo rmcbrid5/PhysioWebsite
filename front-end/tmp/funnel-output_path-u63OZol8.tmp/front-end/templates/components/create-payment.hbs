@@ -1,0 +1,114 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+</head>
+<br /><br />
+<div style="text-align: center">
+  <h3>Purchase a Package</h3>
+  <div class="ui raised segment" style="display: inline-block; text-align:center; padding-top: 28px">
+    <h3>Assessment Package</h3>
+    <p>Initial consult via email & video conference</p><br /><br />
+    <p>Personal online account Therapy Plan - accessed on your account</p><br /><br />
+    <p>Education, Advice</p><br /><br />
+    <div class="field">
+      <h5><b>Payment Notes</b></h5>
+      <div class="ui input">
+        {{textarea cols=50 rows=5 placeholder="Notes" value=notes}}
+      </div>
+    </div><br />
+    <b>Amount - $150</b><br />
+    <div class="actions">
+      <div {{action 'processPayment'}} class="ui positive right labeled icon button" style="background-color: black">
+        Confirm Information
+        <i class="checkmark icon"></i>
+      </div>
+    </div><br />
+    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="F49PBVPZ6K6KQ">
+      <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+      <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+  </div>
+  <div class="ui raised segment" style="display: inline-block; text-align:center">
+    <h3>Assessment Package + 3 Sessions</h3>
+    <p>Initial consult via email & video conference</p><br />
+    <p>3 further online sessions via email & video conference</p>
+    <p>Personal online account Therapy Plan - accessed on your account</p><br /><br />
+    <p>Education, Advice</p><br /><br />
+    <div class="field">
+      <h5><b>Payment Notes</b></h5>
+      <div class="ui input">
+        {{textarea cols=50 rows=5 placeholder="Notes" value=notes1}}
+      </div>
+    </div><br />
+    <b>Amount - $350</b><br />
+    <div class="actions">
+      <div {{action 'processPayment1'}} class="ui positive right labeled icon button" style="background-color: black">
+        Confirm Information
+        <i class="checkmark icon"></i>
+      </div>
+    </div><br />
+    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="FVUF2HT9LU2JA">
+      <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+      <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+  </div>
+  <div class="ui raised segment" style="display: inline-block; text-align:center">
+    <h3>Assessment Package + 6 Sessions</h3>
+    <p>Initial consult via email & video conference</p><br />
+    <p>6 further online sessions via email & video conference</p>
+    <p>Personal online account Therapy Plan - accessed on your account</p><br /><br />
+    <p>Education, Advice</p><br /><br />
+    <div class="field">
+      <h5><b>Payment Notes</b></h5>
+      <div class="ui input">
+        {{textarea cols=50 rows=5 placeholder="Notes" value=notes2}}
+      </div>
+    </div><br />
+    <b>Amount - $550</b><br />
+    <div class="actions">
+      <div {{action 'processPayment2'}} class="ui positive right labeled icon button" style="background-color: black">
+        Confirm Information
+        <i class="checkmark icon"></i>
+      </div>
+    </div><br />
+    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="R55HV76M8QT7N">
+      <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+      <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+  </div>
+</div><br />
+<h1 class="ui horizontal divider">
+    OR
+</h1>
+<div style="text-align: center;">
+  <h3>Purchase a Single Appointment</h3>
+  <div class="ui raised segment" style="display: inline-block; text-align:center">
+    <h3>
+      Single Follow-up Appointment
+    </h3>
+    <div class="field">
+      <h5><b>Payment Notes</b></h5>
+      <div class="ui input">
+        {{textarea cols=50 rows=5 placeholder="Notes" value=notes2}}
+      </div>
+    </div><br />
+    <b>Amount - $75</b><br />
+    <div class="actions">
+      <div {{action 'processPayment3'}} class="ui positive right labeled icon button" style="background-color: black">
+        Confirm Information
+        <i class="checkmark icon"></i>
+      </div>
+    </div><br />
+    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="HH54EJZEX2GM6">
+      <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+      <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+  </div>
+</div><br /><br />

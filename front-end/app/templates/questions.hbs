@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<br>
+<div class="ui secondary pointing menu">
+    <a class="item">{{#link-to "admin-profile"}}Profile{{/link-to}}</a>
+  <a class="item">{{#link-to "forms"}}Forms Questions{{/link-to}}</a>
+  <a class="active item">{{#link-to "questions"}}Questions{{/link-to}}</a>
+  <a class="item">{{#link-to "injury-forms"}}Injury Forms{{/link-to}}</a>
+  <a class="item">
+    {{#link-to "manage-users"}}Manage Users{{/link-to}}
+  </a>
+</div>
+<div style="margin-left: 4em;">
+    <h2>Manage Questions</h2>
+</div>
+
+<!-- need a css change for this modal position -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12" style="margin: 30px;">
+            <table id="example" class="ui celled table" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Question Text</th>
+                        <th>Help Description</th>
+                        <th>Type</th>
+                        <th>Edit/Delete</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Question Text</th>
+                        <th>Help Description</th>
+                        <th>Type</th>
+                        <th>Edit/Delete</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {{#each model as |onePost|}}
+                        <tr>
+                            <td>{{onePost.questionText}}</td>
+                            <td>{{onePost.helpDescription}}</td>
+                            <td>{{onePost.questionType}}</td>
+                            <td>
+                                {{delete-question ID=onePost.id}}{{modify-question questionText=onePost.questionText helpDescription=onePost.helpDescription order=onePost.order questionType=onePost.questionType ID=onePost.id}}
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{add-question}}
+        </div>
+    </div>
+</div>

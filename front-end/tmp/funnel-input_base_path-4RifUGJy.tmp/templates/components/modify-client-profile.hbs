@@ -1,0 +1,85 @@
+<div class="ui blue right floated animated button" style="min-width: 0px;" {{action 'openModal'}}>
+    <div class="visible content"><i class="edit icon"></i></div>
+    <div class="hidden content">Edit</div>
+</div>
+
+{{#ui-modal name=modalName class=modalName}}
+    <div class="header">
+        Modifying Client Profile
+    </div>
+    <div class="scrolling content">
+        <div class="ui form">
+            <div class="field">
+                <label>Modify First Name</label>
+                {{input type="text" value=givenName cols="50" rows="1"}}
+            </div>
+            <div class="field">
+                <label>Modify Last Name</label>
+                {{input type="text" value=familyName cols="50" rows="1"}}
+            </div>
+            <div class="field">
+                <label>Modify Postal Code</label>
+                {{input type="text" value=postalCode cols="50" rows="1"}}
+            </div>
+            <div class="field">
+                <label>Modify Phone</label>
+                {{input type="text" value=phone cols="50" rows="1"}}
+            </div>
+            <div class="field">
+                <label>Modify Country</label>
+                {{#ui-dropdown class="selection" selected=country onChange=(action (mut country))}}
+                    <div class="default text">Country</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        {{#each countryModel as |country|}}
+                            <div class="item" data-value="{{country.id}}">
+                                {{country.name}}
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/ui-dropdown}}
+            </div>
+            <div class="field">
+                <label>Modify Province</label>
+                {{#ui-dropdown class="selection" selected=province onChange=(action (mut province))}}
+                    <div class="default text">province</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        {{#each provinceModel as |province|}}
+                            <div class="item" data-value="{{province.id}}">
+                                {{province.name}}
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/ui-dropdown}}
+            </div>
+            <div class="field">
+                <label>Modify City</label>
+                {{#ui-dropdown class="selection" selected=city onChange=(action (mut city))}}
+                    <div class="default text">City</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        {{#each cityModel as |city|}}
+                            <div class="item" data-value="{{city.id}}">
+                                {{city.name}}
+                            </div>
+                        {{/each}}
+                    </div>
+                {{/ui-dropdown}}
+            </div>
+        </div>
+    </div>
+<br>
+
+<div class="actions">
+    <div class="ui black deny button">
+        Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+        Save
+        <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+</div>
+{{/ui-modal}}
+<br><br>

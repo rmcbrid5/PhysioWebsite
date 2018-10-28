@@ -1,0 +1,73 @@
+/* Nina */
+.button--nina {
+	padding: 0 2em;
+	background: #7986cb;
+	color: #fff;
+	overflow: hidden;
+	transition: background-color 0.3s;
+}
+.button--nina.button--inverted {
+	background: #fff;
+	color: #7986cb;
+}
+.button--nina > span {
+	display: inline-block;
+	padding: 1em 0;
+	opacity: 0;
+	color: #fff;
+	transform: translate3d(0, -10px, 0);
+	transition: transform 0.3s, opacity 0.3s;
+	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+.button--nina::before {
+	content: attr(data-text);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 1em 0;
+	transition: transform 0.3s, opacity 0.3s;
+	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+.button--nina:hover {
+	background-color: #3f51b5;
+}
+.button--nina:hover::before {
+	opacity: 0;
+	transform: translate3d(0, 100%, 0);
+}
+.button--nina:hover > span {
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+.button--nina:hover > span:nth-child(1) {
+	transition-delay: 0.045s;
+}
+.button--nina:hover > span:nth-child(2) {
+	transition-delay: 0.09s;
+}
+.button--nina:hover > span:nth-child(3) {
+	transition-delay: 0.135s;
+}
+.button--nina:hover > span:nth-child(4) {
+	transition-delay: 0.18s;
+}
+.button--nina:hover > span:nth-child(5) {
+	transition-delay: 0.225s;
+}
+.button--nina:hover > span:nth-child(6) {
+	transition-delay: 0.27s;
+}
+.button--nina:hover > span:nth-child(7) {
+	transition-delay: 0.315s;
+}
+.button--nina:hover > span:nth-child(8) {
+	transition-delay: 0.36s;
+}
+.button--nina:hover > span:nth-child(9) {
+	transition-delay: 0.405s;
+}
+.button--nina:hover > span:nth-child(10) {
+	transition-delay: 0.45s;
+}

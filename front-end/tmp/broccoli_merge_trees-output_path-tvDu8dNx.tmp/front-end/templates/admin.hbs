@@ -1,0 +1,71 @@
+<br>
+  <a class="item">{{#link-to "forms"}}Forms Questions{{/link-to}}</a>
+  <a class="item">{{#link-to "questions"}}Questions{{/link-to}}</a>
+  <a class="item">{{#link-to "manage-users"}}Manage Users{{/link-to}}</a>
+  <a class="active item">{{#link-to "admin"}}Admin Dashboard{{/link-to}}</a>
+<div style='margin-left: 4em;'>
+    <h2>Admin Dashboard</h2>
+</div>
+
+<div class="container">
+  <div class="row jqur">
+    <div class="col-sm-12" style="margin-left: 6em; margin-top: 30px;">
+      <b style="padding-left: 39px;">Clients: </b>
+      <b style="padding-left:110px;"> Physiotherapists: </b>
+      <b style="padding-left:77px;">Pending Payments: </b>
+      <div>
+      <br>
+      </div>
+          <div class="counter" data-count={{model.[0]}}>0</div>
+
+          <div class="counter" data-count={{model.[1]}}>0</div>
+          <div class="counter" data-count={{model.[1]}}>0</div>
+
+              </div>
+          <div class="ui positive button" style="padding-left: 122px;border: #4f9ec7; background-color: white; color: #4f9ec7">
+            <a href="#services">
+               See Monthly
+            </a>
+          </div>
+          <div class="ui positive button" style="padding-left:86px;background-color: white; color: #4f9ec7">
+            <a href="#services">
+               See Monthly
+            </a>
+          </div>
+          <div class="ui positive button" style="padding-left:99px;background-color: white; color: #4f9ec7">
+            <a href="#services">
+               See Monthly
+            </a>
+          </div>
+
+
+
+  </div>
+
+</div>
+
+{{to-do-list}}
+
+<script>
+
+$('.counter').each(function() {
+  var $this = $(this),
+      countTo = $this.attr('data-count');
+
+  $({ countNum: $this.text()}).animate({
+    countNum: countTo
+  },
+
+  {
+    duration: 1500,
+    easing:'linear',
+    step: function() {
+      $this.text(Math.floor(this.countNum));
+    },
+    complete: function() {
+      $this.text(this.countNum);
+    }
+  });
+});
+
+</script>

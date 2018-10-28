@@ -1,0 +1,10 @@
+<select class="form-control" onchange={{action "addAssessmentTest" value="target.value"}}>
+    {{#each assessmentTestModel as |test|}}
+        <option value={{test.id}}>
+            {{test.name}}
+        </option>
+    {{/each}}
+</select>
+<ol id="assessmentTests">
+
+</ol>

@@ -1,0 +1,31 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+</head>
+<br><br>
+<div class="ui container">
+    <div style="width:50%; margin: auto">
+        <div class="ui raised segment" style="border-radius:2%; padding-left:2em; padding-right: 2em">
+            <h2 style="font-family:'Krona One'; text-align: center; padding-top:1em; font-size:15px"><b>ALREADY HAVE AN ACCOUNT?</b></h2>
+            {{login-user}}
+            {{forgot-password}}
+        </div><br /><br />
+        <div class="ui raised segment"  style="text-align: center; border-radius:2%; padding-left:2em; padding-right: 2em; margin-bottom: 2em">
+          <div>
+            <h2 style="font-family:'Krona One'; text-align: center; padding-top: 1em; font-size:15px">ARE YOU NEW TO SELF START BODY SMART, AND WANT TO BECOME A PART OF IT?</h2>
+            <div class="header" style="font-family:'Krona One'; text-align: center; font-size:22px">
+              REGISTER
+            </div><br />
+            {{register-user}}
+          </div><br /><br />
+        <div style= "text-align: center;">
+            <p style="font-family:'Krona One'; font-size:12px;">
+                After registering, please check your email for the authentication code to get
+                started!
+            </p>
+            {{authenticate-user}}
+        </div>
+          </div>
+    </div>
+</div>
+<br>
+{{generate-data}}

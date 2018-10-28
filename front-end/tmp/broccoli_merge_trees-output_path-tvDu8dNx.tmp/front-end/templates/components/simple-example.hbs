@@ -1,0 +1,40 @@
+{{#if ImageIsAdding}}
+  <div class="ui container">
+    {{upload-files
+      model = 'image'
+      maximumFileSize = 6
+      multiple=true
+      flag = ImageIsAdding
+    }}
+  </div>
+{{else}}
+  {{#each model as |image| }}
+    <div class="ui items">
+      <div class="item">
+        <div class="ui small image">
+          <img src="{{image.imageData}}">
+        </div>
+        <div class="middle aligned content">
+          <div class="header">{{image.name}}</div>
+          <div class="meta">
+            <span>Size: {{image.size}}</span>
+          </div>
+          <div class="description">
+            <span>Type: {{image.type}}</span>
+          </div>
+          <div class="extra">
+            <button class="ui icon red basic button" {{action 'deleteImage' image}}>
+              <i class="remove icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+
+  <br>
+  <button class="ui blue button" {{action 'addNewImage'}}>
+    Add New Image
+  </button>
+
+{{/if}}

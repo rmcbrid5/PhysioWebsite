@@ -1,0 +1,73 @@
+2.2 - Assumptions and Dependencies
+	
+	During the design phase of the project, one key assumption was made so as to simplify and retain the proper defined scope for the application's development. This assumption relates to the payment functionality for the application: it is assumed that the payment procedure will be handled by a third party, such as Paypal, or directly through a bank. It is important to note that this assumption is solely in relation to payment processing, and does not extend to payment confirmation delivery, nor acessing features on the application that are locked behind payment. Beyond this assumption, there were no other assumptions made for this project that could affect the viability of the project.
+
+3.2 - Functionality
+
+	This section of the Modern SRS will include the functional requirements for the application to be developed. Many examples work in tandem with the use cases defined earlier.
+	
+	
+		- A new user must have functionality to create their own account, with a standard username and password. The password must be protected by encryption on the back end of the database.
+		- The system administrator must be able to add both a user account, and a physiotherapist account, to the database. This functionality must be integrated such that accounts added by the admin have the same functionality as accounts created by user registration.
+		- The user must be able to log in to their account using their determined username and password.
+		- The user must be able to change their user details independently through the application. This includes the ability to chage password, billing information, name, and any additional profile information.
+		- The user must be able to book an appointment with a physiotherapist. Where applicable, they should be able to book during an available timeslot of their choosing, and with any valid physiotherapist.
+		- Any physiotherapist should be able to generate reports that are able to see detailed information about clients, such as graphs corresponding to the ratings given for exercises by users.
+		- Users should be able to add a rating to any exercises prescribed to them. This rating follows a standard scale (1 to 10), and the rating is able to be updated at any time.
+		- Any physiotherapist should be able to submit a treatment plan, acting as a template to be sent to clients.
+		- The system administrator should be able to manage user profiles, including functionality to change user passwords, profile information, and also delete/suspend any profiles.
+		- The system administrator must be able to add, delete, or change any existing exercises within the exercise database. These exercises can be incorporated by any physiotherapist, and viewed by any user.
+		- The user must be able to add payment to their account. This payment functions via credits, and works on a subscription basis. The payment itself is to be handled by an involved third party, such as Paypal or directly through a bank. The system administrator must be notified of any payments made.
+		- The system must permit functionality to send messages between users and physiotherapists. These messages may include text, treatment plans, and any attachments such as pictures or videos. 
+		- The system must include functionality for physiotherapists to create assessment tests specifically for a particular user. As well, these assessment tests must be both viewable and able to be filled in by the user in question. 
+		
+3.3 - Usability
+
+	- The Self Start system's top priority in design is ensuring that the application is simple enough for an inexperienced user to navigate and use to a high degree, fulfilling all required needs. This will be achieved using modern design implementation, with any user input options being clearly defined.
+	
+	- The application should also be quick and painless to navigate throughout, ideally requiring no more than a few clicks to reach one end of the application from another. This is to be achieved through a simple yet thorough application layout and design, complete with a homepage that clearly leads to any required pages, and quick traversal from one page to another.
+	
+	- For any user inputs within the application, ranging from entering a text field to clicking a button, it is worth noting that the user must always feel in control. This will be achieved by attaching a response to any action executed by any user, such as a loading icon or ensuring text entry is responsive.
+	
+	- Throughout the application design, the specified Microsoft GUI standards will be followed, ensuring an optimal user experience. This entails ensuring sizing and positioning is ideal, and that all features that the user can interact with are intuitive and well defined. Any buttons will clearly describe their function to reduce confusion, and empty space will be kept to a minimum. 
+	
+3.4 - Reliability 
+	
+	- The availability goal of the site is to be functional and available to users and physiotherapists 24/7, as the goal for the application itself is to allow clients to access support during hours where support is otherwise unavailable. When there is maintenance required, notice will be given on the home page of the site as soon as possible, ideally at least 4 business days in advance. The maintenance will ideally be performed at determined low activity hours, such as early in the morning, to reduce any potential interruptions.
+	
+	- The mean time between failures (MTBF) will ideally be as high as possible, with intention to be as high as two days (48 hours). This will help keep downtime to a minimum, allowing for the highest work output possible. Any detected failures will ideally be dealt with as quickly as possible, to help further reduce downtime. 
+	
+	- Due to the complexity of the site, the mean time to repair (MTTR) is planned to be kept below 10 hours, including both the diagnostics and repair phases. This ensures that the repair will not occupy an entire work day, and can even be finished during a single night where applicable.
+	
+	- Though not applicable to a large range of features, the system's accuracy is important where relevant. This will notably be when generating reports for calculating ratings and exercise effectiveness, to which any calculated averages will be rounded to the nearest hundredth decimal place. 
+	
+	- A low defect rate is of high priority for the application, particularly with functions pertaining to payment and registration. The goal for these two sections is to reduce the bugs/KLOC to no more than 1, while for other, less dire functions, up to 3 bugs/KLOC are to be expected. 
+	
+	- For the system, any bugs are to be distributed by three classifications: Minor bugs, major bugs, and critical bugs.
+		- Minor: Any bugs pertaining to the UI, or the calculation of data.
+		- Major: Any bugs that directly affect messaging or data generation, which would specifically interfere with the user's treatment effectieness. These are of a higher priority than any graphical bugs, and should be dealt with promptly.
+		- Critical: Any bugs that directly interfere with authentication, or which have the capability to cause a system-wide failure. These bugs must be dealt with immediately for the sake of security and usability, respectively.
+
+3.5 - Performance
+
+	- In tandem with the predefined user experience priority, response time is to be kept as low as possible, ideally no more than 3 seconds for any operation requested by the user. Some functions, such as messaging, may require slightly more time, up to a permitted 5 seconds.
+
+	- The initial deployment of the application will rest upon a simple server infrastructure, not designed for more than a hundred concurrent users. This will help reduce server costs while interest is gauged. Should the traffic exceed this low estimation, then the server can easily be updated to permit any amount of concurrent users.
+	
+	- With regards to resource allocation and distribution, a bulk of operations will be executed either server-side, or with a back-end database. This helps to reduce strain on the user, and allows even users without modern computing devices to receive high quality access to the application. Should this cause excess strain on the system, it can easily be adjusted to require more client-side processing. 
+
+3.6 - Supportability 
+
+	- During the implementation phase, standard coding practice will be followed precisely. This includes proper capitalization for all variables and functions, as well as all variables and functions having a clear name that accurately describes their purpose. This will help with reducing maintenance time.
+	
+	- Development for the application will rely on widely used libraries particularly, and libraries that are compatible with any browsers and any operating systems. There should also be mobile accommodations made, such that any client can access the system from anything and anywhere. A prominent example of permitting this would be to utilize JQuery rather than JavaScript, to ensure the cross-browser functionality. For any issues that are not supported by the designated libraries, further functionality may be added specifically for the clients that have issue using the application.
+	
+	- To optimize available support, modern practices will be used, however this only includes practices that are well-known. Given the choice between a slightly older methodology or a sparsely used new methodology, the older methodology will be selected to maximize the available support for the system.
+
+3.7 - Design Constraints 
+
+	- During implementation and setup, a bureaucratic method will be followed to optimize supportability and reliability, as well as for ease of access. This primarily includes each page of the application possessing its own folder, with its associated files and images belonging solely to this folder. File names will clearly define their purpose and relevance, and will follow standard naming and templating conventions.
+	
+	- The application itself will follow a strict and consistent design scheme, including a consistent colour palette, and stylistic decisions that are easy to follow. The colours used will be such that colourblind users are not negatively impacted, and the overall design will be clear enough that any user with vision deficiency can easily follow the flow of events required. 
+	
+	- The application itself will be dynamically created where applicable, such that each user has an individualized experience, and so any information logged is not outdated upon viewing. Exceptions to this will lie within the messaging functionality, which will merely follow standard messaging protocol.

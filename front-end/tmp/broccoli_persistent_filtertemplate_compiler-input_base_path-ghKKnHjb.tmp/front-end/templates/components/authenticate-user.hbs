@@ -1,0 +1,35 @@
+<div class="ui blue animated button" style="min-width: 0px;" {{action 'openModal'}}>
+    <div class="visible content">Authenticate Your Account!</div>
+    <div class="hidden content"><i class="edit icon"></i></div>
+</div>
+
+{{#ui-modal name="authenticateUser" class="authenticateUser"}}
+    <div class="header">
+        Authenticating Your Account
+    </div>
+    <div class="scrolling content">
+        <div class="ui form">
+            <div class="field">
+                <label>Email</label>
+                {{input type="text" cols="50" rows="1" value=email}}
+            </div>
+            <div class="field">
+                <label>Authentication Code</label>
+                {{textarea value=encryptedAuth cols="50" rows="1" }}
+            </div>
+        </div>
+    </div>
+<br>
+
+<div class="actions">
+    <div class="ui black deny button">
+        Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+        Authenticate Now
+        <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+</div>
+{{/ui-modal}}
+<br><br>

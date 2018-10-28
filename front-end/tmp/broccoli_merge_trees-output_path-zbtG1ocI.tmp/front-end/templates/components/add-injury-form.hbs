@@ -1,0 +1,49 @@
+<br><br>
+<div class="ui blue animated button" {{action 'openModal'}}>
+    <div class="visible content">Add New Injury Form</div>
+    <div class="hidden content">
+        <i class="plus icon"></i>
+    </div>
+</div>
+{{#ui-modal name="newInjuryForm" class="newInjuryForm"}}
+    <div class="header">
+        Adding New Injury Form
+    </div>
+    <div class="scrolling content">
+        <div class="ui form">
+            <div class="field">
+                <label>Name</label>
+                {{input type="text" cols="50" rows="1" value=name placeholder="add name"}}
+            </div>
+          
+            <div class="field">
+                <label>Form</label>
+                {{#ui-dropdown class="search selection" allowAdditions=true selected=form onChange=(action (mut form)) as |execute mapper|}}
+                <div class="default text">Search Forms</div>
+                <li class="dropdown icon"></li>
+                <div class="menu">
+                <div data-value="" class="item">All Items</div>
+                {{#each formModel as |frm|}}
+                  <div data-value="{{map-value mapper frm}}" class="item">
+                    {{frm.name}}
+                  </div>
+                {{/each}}
+                </div>
+                {{/ui-dropdown}}
+            </div>
+
+        </div>
+    </div>
+<br>
+
+<div class="actions">
+    <div class="ui black deny button">
+        Cancel
+    </div>
+    <div class="ui positive right labeled icon button">
+        Save
+        <i class="checkmark icon"></i>
+    </div>
+    <br><br>
+</div>
+{{/ui-modal}}

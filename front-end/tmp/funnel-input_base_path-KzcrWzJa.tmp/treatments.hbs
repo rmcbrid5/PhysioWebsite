@@ -1,0 +1,84 @@
+<div class="ui secondary pointing menu">
+  <div class="item">{{#link-to 'clients'}}Profile{{/link-to}}</div>
+  <div class="item">{{#link-to 'book-appointment'}}Book Appointment{{/link-to}}</div>
+  <div class="item">{{#link-to 'make-payment'}}Make Payment{{/link-to}}</div>
+  <div class="active item">{{#link-to 'treatments'}}Treatments{{/link-to}}</div>
+  <div class="item">{{#link-to 'my-images'}}My Uploaded Images{{/link-to}}</div>
+</div>
+<br><br>
+<div style="margin-left: 4em">
+  <h1>Treatments</h1><br>
+  {{#ui-accordion class="styled" style="width: 50%"}}
+    {{#each model as |treatment|}}
+      <div class="title">
+        {{treatment.rehabilitationPlan.name}}
+      </div>
+      <div class="content">
+        <h2>Exercises</h2>
+        <table id="example" class="ui celled table" width="100%" cellspacing="0">
+          <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Action Steps</th>
+                  <th>Objectives</th>
+                  <th>Frequency</th>
+                  <th>Duration</th>
+                  <th>Image</th>
+              </tr>
+          </thead>
+          <tfoot>
+              <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Action Steps</th>
+                  <th>Objectives</th>
+                  <th>Frequency</th>
+                  <th>Duration</th>
+                  <th>Image</th>
+              </tr>
+          </tfoot>
+          <tbody>
+            {{#each treatment.rehabilitationPlan.exercisesLists as |exercisesList|}}
+              <tr>
+                <td>{{exercisesList.exercise.name}}</td>
+                <td>{{exercisesList.exercise.description}}</td>
+                <td>
+                  <ol>
+                    {{#each exercisesList.exercise.actionSteps as |actionStep|}}
+                      <li>{{actionStep}}</li>
+                    {{/each}}
+                  </ol>
+                </td>
+                <td>
+                  <ol>
+                    {{#each exercisesList.exercise.objectives as |objective|}}
+                      <li>{{objective}}</li>
+                    {{/each}}
+                  </ol>
+                </td>
+                <td>
+                  {{exercisesList.exercise.frequency}}
+                </td>
+                <td>
+                  {{exercisesList.exercise.duration}}
+                </td>
+                <td>
+                  <img src="{{exercisesList.exercise.image.imageData}}">
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+      </table>
+      <h2>Assessment Tests</h2>
+        <ul>
+          {{#each treatment.rehabilitationPlan.assessmentTests as |assessmentTest|}}
+            <li>
+              {{assessmentTest.form.name}} {{complete-test assessmentTest=assessmentTest treatment=treatment}}
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/each}}
+  {{/ui-accordion}}
+</div>
